@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./styles/style.css">
     <script src="./scripts/jquery.js"></script>
@@ -18,8 +23,8 @@
             <a class="subnavbtn" href="#">Anime<i class="fa fa-caret-down"></i></a>
             <div class="subnavContent">
                 <a href="#">animeSearch</a>
-                <a href="#">topanime</a>
-                <a href="#">seasonalAnime</a>
+                <a href="#topAnime">topanime</a>
+                <a href="#seasonAnime">seasonalAnime</a>
                 <a href="#">episodes</a>
                 <a href="#">pictures</a>
                 <a href="#">videos</a>
@@ -32,7 +37,8 @@
             <a class="subnavbtn" href="#">Magna<i class="fa fa-caret-down"></i></a>
             <div class="subnavContent">
                 <a href="#">magnaSearch</a>
-                <a href="#">topmagna</a>magnaStore</a>
+                <a href="#">topmagna</a>
+                <a href="#"> magnaStore</a>
                 <a href="#">videos</a>
                 <a href="#">reviews</a>
                 <a href="#">recommondations</a>
@@ -88,15 +94,405 @@
     </div>
 </section>
 <!-- End Header -->
-<div> welcome to Anime Website
-</div>
-<div id="content">
-    <div class="left-column pt12">
+
+<div id="contentWrapper">
+    <div>
+        <h1 class="h1">Welcome to MyAnimeList.net!</h1>
+    </div>
+    <div id="content">
         <article>
-                  <a href="#">View More</a>
-                    <h2><a href="#">Fall 2020 Anime</a></h2>
+            <div class="widget-header">
+                <h2 id="seasonAnime" class="container text-left my-3"><a href="#">Fall 2020 Anime</a></h2>
+                <h5 class="container text-right my-3"><a href="#">View More</a></h5>
+                <div class="widget-content">
+                    <div class="widget-slide-block">
+                        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+                            <div class="carousel-inner w-100" role="listbox">
+                                <div class="carousel-item row no-gutters active">
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title"> Kuma Kuma Kuma Bear</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1115/108852.jpg"/></a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Iwa Kakeru!: Sport Climbing Girls </span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1626/108849.jpg"/>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title"> Golden Kamuy 3rd Season</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1763/108108.jpg"/></a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Ikebukuro West Gate Park</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1277/108376.jpg"/></a>
+                                    </div>
+                                </div>
+                                <div class="carousel-item row no-gutters">
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Jujutsu Kaisen (TV) </span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1171/109222.jpg"/>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka III</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1523/108380.jpg"/>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Tonikaku Kawaii</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1613/108722.jpg"/>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title"> Mahouka Koukou no Rettousei: Raihousha-hen</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1788/106668.jpg"/>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="carousel-item row no-gutters">
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Majo no Tabitabi</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1802/108501.jpg"/></a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                            <span class="title"> Kami-tachi ni Hirowareta Otoko
+                                            </span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1654/108801.jpg"/></a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Maoujou de Oyasumi</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1448/108514.jpg"/></a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title"> Hanyou no Yashahime: Sengoku Otogizoushi</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1984/110105.jpg"/></a>
+                                    </div>
+                                </div>
+                                <div class="carousel-item row no-gutters">
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Adachi to Shimamura</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1649/109056.jpg"/></a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Yuukoku no Moriarty</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1464/108330.jpg"/></a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">100-man no Inochi no Ue ni Ore wa Tatteiru</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1825/108800.jpg"/></a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title"> Kimi to Boku no Saigo no Senjou, Aruiwa Sekai ga Hajimaru Seisen</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1100/109044.jpg"/></a>
+                                    </div>
+                                </div>
+                                <div class="carousel-item row no-gutters">
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Munou na Nana </span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1301/110433.jpg"/></a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Noblesse</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1798/109141.jpg"/></a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title"> Kamisama ni Natta Hi</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1396/109465.jpg"/></a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Akudama Drive </span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1468/109172.jpg"/></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#recipeCarousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </article>
-        </div>
+    </div>
+    <div>
+        <article>
+            <div class="widget-header">
+                <h2 id="topAnime" class="container text-left my-3"><a href="#">Top Anime</a></h2>
+                <h5 class="container text-right my-3"><a href="#">View More</a></h5>
+                <div class="widget-content">
+                    <div class="widget-slide-block">
+                        <div id="recipe-carousel" class="carousel slide w-100" data-ride="carousel">
+                            <div class="carousel-inner w-100" role="listbox">
+                                <div class="carousel-item row no-gutters active">
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title"> rank:1 <br> Fullmetal Alchemist: Brotherhood</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1223/96541.jpg?s=faffcb677a5eacd17bf761edd78bfb3f"/></a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Rank2: <br>Steins;Gate </span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/5/73199.jpg?s=97b97d568f25a02cf5a22dda13b5371f"/>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Rank3: <br>Hunter x Hunter (2011) </span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/11/33657.jpg?s=5724d8c22ae7a1dad72d8f4229ef803f"/></a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Rank4: <br>Gintama</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/3/72078.jpg?s=e9537ac90c08758594c787ede117f209"/></a>
+                                    </div>
+                                </div>
+                                <div class="carousel-item row no-gutters">
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Rank5:<br> Ginga Eiyuu Densetsu </span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/13/13225.jpg?s=385cedad342e284c5765833ab1cddc1c"/>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Rank6:<br>Gintama</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/4/50361.jpg?s=b3a061db8c3d42a055d58f9df1f3dac7"/>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Rank7:<br> Shingeki no Kyojin Season 3 Part 2</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1517/100633.jpg?s=4540a01b5883647ade494cd28392f100"/>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title"> Rank8:<br> Shingeki no Kyojin: The Final Season </span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1000/110531.jpg?s=3df5ebb6800604dc04c6a6187dd7161b"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#recipeCarousel1" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#recipeCarousel1" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+    <div>
+        <article>
+            <div class="widget-header">
+                <h2 id="upcomingSeason" class="container text-left my-3"><a href="#"> upcoming Season</a></h2>
+                <div class="widget-content">
+                    <div class="widget-slide-block">
+                        <div id="recipe-carousel1" class="carousel slide w-100" data-ride="carousel">
+                            <div class="carousel-inner w-100" role="listbox">
+                                <div class="carousel-item row no-gutters active">
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title"> Tate no Yuusha no Nariagari Season 2</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1683/109090.jpg"/></a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Kobayashi-san Chi no Maid Dragon S</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1777/108817.jpg"/>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Tate no Yuusha no Nariagari Season 3</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1406/104631.jpg"/></a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen 3rd Season</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1079/109928.jpg"/></a>
+                                    </div>
+                                </div>
+                                <div class="carousel-item row no-gutters">
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title"> Arifureta Shokugyou de Sekai Saikyou 2nd Season
+                                                    </span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1198/103431.jpg"/>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title"> Kanojo, Okarishimasu 2nd Season</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1098/109442.jpg"/>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title"> Tensei shitara Slime Datta Ken 2nd Season Part 2</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1739/106573.jpg"/>
+                                        </a>
+                                    </div>
+                                    <div class="col-3 float-left">
+                                        <a href="#" class="link">
+                                            <h3 class="h3_character_name">
+                                                <span class="title">Isekai Maou to Shoukan Shoujo no Dorei Majutsu Ω</span>
+                                            </h3>
+                                            <img class="scroller" alt=""
+                                                 src="https://cdn.myanimelist.net/images/anime/1705/106918.jpg"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#recipe-carousel1" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#recipe-carousel1" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
 </div>
 </body>
 </html>

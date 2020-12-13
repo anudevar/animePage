@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,600,700,800,900&display=swap');
+
 .topNav {
     overflow: hidden;
     background-color: #333;
@@ -56,4 +58,44 @@
 
 .subnav:hover .subnavContent {
     display: block;
+}
+#contentWrapper {
+    background-color: #fff;
+    min-height: 555px;
+    padding-bottom: 30px;
+    position: relative;
+}
+#contentWrapper {
+    margin-bottom: 0;
+}
+div {
+    display: block;
+}
+body.index #content {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+#content {
+    background-color: #fff;
+    border-color: #ebebeb;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    padding: 5px 10px 10px;
+    position: relative;
+}
+article{
+    display: block;
+}
+body.index .widget-header {
+    border-color: #bebebe;
+    border-style: solid;
+    border-width: 0 0 1px;
+    color: #000;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0;
+    padding: 3px 0;
 }
