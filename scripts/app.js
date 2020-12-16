@@ -1,7 +1,94 @@
 $(document).ready(function () {
-TopAnimeList();
+    TopAnimeList();
+    seasonAnime();
+    videosAnime();
 });
-function TopAnimeList(){
+function videosAnime(){
+    videoAnime();
+    $('#videos').on('click', function () {
+        $('#videoDiv').empty();
+       videoAnime();
+    });
+    $('#episodes').on('click', function () {
+        $('#videoDiv').empty();
+        episodeAnime();
+    });
+}
+function videoAnime() {
+    let main = {
+        "url": "https://api.jikan.moe/v3/anime/1/videos",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    let top;
+    $.ajax(main)
+        .done(function (response) {
+            top = response['promo'];
+        });
+    $.each(top, function (key, value) {
+        let title = value["title"];
+        let imageSource = value["image_url"];
+        let videoSource = value["video_url"];
+        let html = (`<article>
+<div>
+                <h3>Title: ` + title + `  </h3>
+                <img alt="" src="` + imageSource + ` "/>
+                <br>
+                <video controls width="250">
+
+    <source src="` + videoSource + `"
+            type="video/mp4">
+
+    Sorry, your browser doesn't support embedded videos.
+</video>
+        </div>
+</article>`);
+        $("#videoDiv").append(html);
+    });
+}
+function episodeAnime() {
+    let main = {
+        "url": "https://api.jikan.moe/v3/anime/1/episodes",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    let top;
+    $.ajax(main)
+        .done(function (response) {
+            top = response['episodes'];
+        });
+    $.each(top, function (key, value) {
+        let title = value["title"];
+        let japaneseTitle = value["title_japanese"];
+        let romanTitle = value["title_romanji"];
+        let AiredFrom = value["aired"];
+        let videoSource = value["video_url"];
+        let html = (`<article>
+<div>
+                <h3>Title: ` + title + `  <br></h3>
+                <p> Japanese Title: ` + japaneseTitle + `  <br>
+                 Roman Title:  ` + romanTitle+ `  <br>
+                 Aired From:  ` + AiredFrom + `  <br></p>
+                 <br>
+                <video controls width="250">
+
+    <source src="` + videoSource + `"
+            type="video/mp4">
+
+    Sorry, your browser doesn't support embedded videos.
+</video>
+        </div>
+</article>`);
+        $("#videoDiv").append(html);
+    });
+}
+
+
+function TopAnimeList() {
     topAnime();
     $('#allTopAnimeList').on('click', function () {
         $('#topDiv').empty();
@@ -398,3 +485,319 @@ function topFavoritesAnime() {
         $("#topDiv").append(html);
     });
 }
+
+
+function seasonAnime() {
+    Summer2020();
+    $('#Summer').on('click', function () {
+        $('#seasonAnimeDiv').empty();
+        Summer2020();
+    });
+    $('#fall').on('click', function () {
+        $('#seasonAnimeDiv').empty();
+        Fall2020();
+    });
+    $('#winter').on('click', function () {
+        $('#seasonAnimeDiv').empty();
+        winter2020();
+    });
+    $('#spring').on('click', function () {
+        $('#seasonAnimeDiv').empty();
+        spring2020();
+    });
+    $('#archive').on('click', function () {
+        $('#seasonAnimeDiv').empty();
+        SeaasonArchive();
+    });
+    $('#later').on('click', function () {
+        $('#seasonAnimeDiv').empty();
+        SeaasonLater();
+    });
+    $('#schedule').on('click', function () {
+        $('#seasonAnimeDiv').empty();
+        SeaasonSchedule();
+    });
+}
+
+function Summer2020() {
+    let season = {
+        "url": "https://api.jikan.moe/v3/season/2020/summer",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    let seasonSelected;
+    $.ajax(season)
+        .done(function (response) {
+            seasonSelected = response['anime'];
+        });
+    $.each(seasonSelected, function (key, value) {
+        let title = value["title"];
+        let moreDetails = value["url"];
+        let imageSource = value["image_url"];
+        let episodes = value["episodes"];
+        let startDate = value["airing_start"];
+        let details = value["synopsis"];
+        let rating = value["score"];
+        let source = value["source"]
+        let producers = value["producers"]["name"];
+        let html = (`<article>
+<div>
+                <h3>Title: ` + title + `  </h3>
+                <img alt="" src="` + imageSource + ` "/>
+                <h5> 
+                Episodes available:` + episodes + ` <br>
+                start date: ` + startDate + ` <br>
+                Source : ` + source + ` <br>
+                 Rating: ` + rating + ` <br>
+                 Producers: ` + producers + ` <br>
+             </h5>
+             <p>` + details + `</p>
+             <a href="` + moreDetails + ` ">moredetails</a>
+        </div>
+</article>`);
+        $("#seasonAnimeDiv").append(html);
+    });
+}
+
+function Fall2020() {
+    let season = {
+        "url": "https://api.jikan.moe/v3/season/2020/fall",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    let seasonSelected;
+    $.ajax(season)
+        .done(function (response) {
+            seasonSelected = response['anime'];
+        });
+    $.each(seasonSelected, function (key, value) {
+        let title = value["title"];
+        let moreDetails = value["url"];
+        let imageSource = value["image_url"];
+        let episodes = value["episodes"];
+        let startDate = value["airing_start"];
+        let details = value["synopsis"];
+        let rating = value["score"];
+        let source = value["source"]
+        let producers = value["producers"]["name"];
+        let html = (`<article>
+<div>
+                <h3>Title: ` + title + `  </h3>
+                <img alt="" src="` + imageSource + ` "/>
+                <h5> 
+                Episodes available:` + episodes + ` <br>
+                start date: ` + startDate + ` <br>
+                Source : ` + source + ` <br>
+                 Rating: ` + rating + ` <br>
+                 Producers: ` + producers + ` <br>
+             </h5>
+             <p>` + details + `</p>
+             <a href="` + moreDetails + ` ">moredetails</a>
+        </div>
+</article>`);
+        $("#seasonAnimeDiv").append(html);
+    });
+}
+
+function winter2020() {
+    let season = {
+        "url": "https://api.jikan.moe/v3/season/2020/winter",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    let seasonSelected;
+    $.ajax(season)
+        .done(function (response) {
+            seasonSelected = response['anime'];
+        });
+    $.each(seasonSelected, function (key, value) {
+        let title = value["title"];
+        let moreDetails = value["url"];
+        let imageSource = value["image_url"];
+        let episodes = value["episodes"];
+        let startDate = value["airing_start"];
+        let details = value["synopsis"];
+        let rating = value["score"];
+        let source = value["source"]
+        let producers = value["producers"]["name"];
+        let html = (`<article>
+<div>
+                <h3>Title: ` + title + `  </h3>
+                <img alt="" src="` + imageSource + ` "/>
+                <h5> 
+                Episodes available:` + episodes + ` <br>
+                start date: ` + startDate + ` <br>
+                Source : ` + source + ` <br>
+                 Rating: ` + rating + ` <br>
+                 Producers: ` + producers + ` <br>
+             </h5>
+             <p>` + details + `</p>
+             <a href="` + moreDetails + ` ">moredetails</a>
+        </div>
+</article>`);
+        $("#seasonAnimeDiv").append(html);
+    });
+}
+
+function spring2020() {
+    let season = {
+        "url": "https://api.jikan.moe/v3/season/2020/spring",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    let seasonSelected;
+    $.ajax(season)
+        .done(function (response) {
+            seasonSelected = response['anime'];
+        });
+    $.each(seasonSelected, function (key, value) {
+        let title = value["year"];
+        let moreDetails = value["seasons"];
+        let imageSource = value["image_url"];
+        let episodes = value["episodes"];
+        let startDate = value["airing_start"];
+        let details = value["synopsis"];
+        let rating = value["score"];
+        let source = value["source"]
+        let producers = value["producers"]["name"];
+        let html = (`<article>
+<div>
+                <h3>Title: ` + title + `  </h3>
+                <img alt="" src="` + imageSource + ` "/>
+                <h5> 
+                Episodes available:` + episodes + ` <br>
+                start date: ` + startDate + ` <br>
+                Source : ` + source + ` <br>
+                 Rating: ` + rating + ` <br>
+                 Producers: ` + producers + ` <br>
+             </h5>
+             <p>` + details + `</p>
+             <a href="` + moreDetails + ` ">moredetails</a>
+        </div>
+</article>`);
+        $("#seasonAnimeDiv").append(html);
+    });
+}
+
+function SeaasonArchive() {
+    let season = {
+        "url": "https://api.jikan.moe/v3/season/archive",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    let seasonSelected;
+    $.ajax(season)
+        .done(function (response) {
+            seasonSelected = response['archive'];
+        });
+    $.each(seasonSelected, function (key, value) {
+        let title = value["year"];
+        let moreDetails = value["seasons"];
+        let html = (`<article>
+<div>
+                <h3>year: ` + title + `  </h3>
+                <h5> 
+                seasons :` + moreDetails + ` <br>
+             </h5>
+        </div>
+</article>`);
+        $("#seasonAnimeDiv").append(html);
+    });
+}
+
+function SeaasonSchedule() {
+    let season = {
+        "url": "https://api.jikan.moe/v3/schedule/monday",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    let seasonSelected;
+    $.ajax(season)
+        .done(function (response) {
+            seasonSelected = response['monday'];
+        });
+    $.each(seasonSelected, function (key, value) {
+        let title = value["title"];
+        let moreDetails = value["url"];
+        let imageSource = value["image_url"];
+        let episodes = value["episodes"];
+        let startDate = value["airing_start"];
+        let details = value["synopsis"];
+        let rating = value["score"];
+        let source = value["source"]
+        let producers = value["producers"]["name"];
+        let html = (`<article>
+<div>
+                <h3>Title: ` + title + `  </h3>
+                <img alt="" src="` + imageSource + ` "/>
+                <h5> 
+                Episodes available:` + episodes + ` <br>
+                start date: ` + startDate + ` <br>
+                Source : ` + source + ` <br>
+                 Rating: ` + rating + ` <br>
+                 Producers: ` + producers + ` <br>
+             </h5>
+             <p>` + details + `</p>
+             <a href="` + moreDetails + ` ">moredetails</a>
+        </div>
+</article>`);
+        $("#seasonAnimeDiv").append(html);
+    });
+}
+
+function SeaasonLater() {
+    let season = {
+        "url": "https://api.jikan.moe/v3/season/later",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    let seasonSelected;
+    $.ajax(season)
+        .done(function (response) {
+            seasonSelected = response['anime'];
+        });
+    $.each(seasonSelected, function (key, value) {
+        let title = value["title"];
+        let moreDetails = value["url"];
+        let imageSource = value["image_url"];
+        let episodes = value["episodes"];
+        let startDate = value["airing_start"];
+        let details = value["synopsis"];
+        let rating = value["score"];
+        let source = value["source"]
+        let producers = value["producers"]["name"];
+        let html = (`<article>
+<div>
+                <h3>Title: ` + title + `  </h3>
+                <img alt="" src="` + imageSource + ` "/>
+                <h5> 
+                Episodes available:` + episodes + ` <br>
+                start date: ` + startDate + ` <br>
+                Source : ` + source + ` <br>
+                 Rating: ` + rating + ` <br>
+                 Producers: ` + producers + ` <br>
+             </h5>
+             <p>` + details + `</p>
+             <a href="` + moreDetails + ` ">moredetails</a>
+        </div>
+</article>`);
+        $("#seasonAnimeDiv").append(html);
+    });
+}
+
+//sample variable takking
+//let takeData = x['producers']['name'];
