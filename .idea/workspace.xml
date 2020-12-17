@@ -3,9 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="7f7688fa-4f35-4d99-97a9-a6289724dbe5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charecter.html" beforeDir="false" afterPath="$PROJECT_DIR$/charecter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clubs.html" beforeDir="false" afterPath="$PROJECT_DIR$/clubs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fourm.html" beforeDir="false" afterPath="$PROJECT_DIR$/fourm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/magazine.html" beforeDir="false" afterPath="$PROJECT_DIR$/magazine.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/news.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/people.html" beforeDir="false" afterPath="$PROJECT_DIR$/people.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/picturesMagna.html" beforeDir="false" afterPath="$PROJECT_DIR$/picturesMagna.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendations.html" beforeDir="false" afterPath="$PROJECT_DIR$/recommendations.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reviewAnime.html" beforeDir="false" afterPath="$PROJECT_DIR$/reviewAnime.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seasonAnime.html" beforeDir="false" afterPath="$PROJECT_DIR$/seasonAnime.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/videoAnime.html" beforeDir="false" afterPath="$PROJECT_DIR$/videoAnime.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topMagna.html" beforeDir="false" afterPath="$PROJECT_DIR$/topMagna.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/user.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +60,8 @@
       <workItem from="1607720642187" duration="361000" />
       <workItem from="1607785538920" duration="14434000" />
       <workItem from="1607862007433" duration="20771000" />
-      <workItem from="1608132094307" duration="19417000" />
+      <workItem from="1608132094307" duration="19447000" />
+      <workItem from="1608199754981" duration="21794000" />
     </task>
     <task id="LOCAL-00001" summary="small change">
       <created>1607786600424</created>
@@ -88,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608153007035</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updated coe">
+      <created>1608160318335</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1608160318335</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +117,7 @@
     <MESSAGE value="updated work" />
     <MESSAGE value="updated version code" />
     <MESSAGE value="updatedcode version" />
-    <option name="LAST_COMMIT_MESSAGE" value="updatedcode version" />
+    <MESSAGE value="updated coe" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated coe" />
   </component>
 </project>
