@@ -8,14 +8,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./styles/style.css">
     <script defer src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.15.1/js/v4-shims.js"></script>
     <script src="./scripts/jquery.js"></script>
     <script src="./scripts/app.js"></script>
-</head>
+    </head>
 <body>
 <!-- Header -->
 <section id="header">
@@ -77,12 +76,16 @@
 <div id="contentWrapper">
     <div>
         <h1 class="h1">Welcome to MyAnimeList.net!</h1>
+        <br>
+        <br>
     </div>
     <div id="content">
         <article>
             <div class="widget-header">
-                <h2 id="seasonAnime" class="container text-left my-3">Fall 2020 Anime</h2>
-                <h5 class="container text-right my-3"><a href="seasonAnime.html">View More</a></h5>
+                <span style="float: right;">
+                  <a href="topAnime.html" style="font-weight: normal; font-size: 11px;">View More</a>
+              </span>
+                <h2 class="container text-left my-3">  Fall 2020 Anime</h2>
                 <div class="widget-content">
                     <div class="widget-slide-block">
                         <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
@@ -153,7 +156,7 @@
                                     <div class="col-3 float-left">
                                         <a href="#" class="link">
                                             <h3 class="h3_character_name">
-                                                <span class="title"> Mahouka Koukou no Rettousei: Raihousha-hen</span>
+                                                <span class="title" > Mahouka Koukou no Rettousei: Raihousha-hen</span>
                                             </h3>
                                             <img class="scroller" alt=""
                                                  src="https://cdn.myanimelist.net/images/anime/1788/106668.jpg"/>
@@ -278,11 +281,13 @@
             </div>
         </article>
     </div>
-    <div>
+    <div id="content">
         <article>
             <div class="widget-header">
-                <h2 id="topAnime" class="container text-left my-3"><a href="#">Top Anime</a></h2>
-                <h5 class="container text-right my-3"><a href="#">View More</a></h5>
+                    <span style="float: right;">
+                  <a href="topAnime.html" style="font-weight: normal; font-size: 11px;">View More</a>
+              </span>
+                <h2 class="container text-left my-3"> Top Anime</h2>
                 <div class="widget-content">
                     <div class="widget-slide-block">
                         <div id="recipe-carousel" class="carousel slide w-100" data-ride="carousel">
@@ -375,10 +380,13 @@
             </div>
         </article>
     </div>
-    <div>
+    <div id="content">
         <article>
             <div class="widget-header">
-                <h2 id="upcomingSeason" class="container text-left my-3"><a href="#"> upcoming Season</a></h2>
+                    <span style="float: right;">
+                  <a href="seasonAnime.html" style="font-weight: normal; font-size: 11px;">View More</a>
+              </span>
+            <h2 class="container text-left my-3"> Upcoming Season</h2>
                 <div class="widget-content">
                     <div class="widget-slide-block">
                         <div id="recipe-carousel1" class="carousel slide w-100" data-ride="carousel">
@@ -472,10 +480,13 @@
             </div>
         </article>
     </div>
-    <div>
+    <div id="content">
         <article>
             <div class="widget-header">
-                <h2 id="magna" class="container text-left my-3"><a href="#"> Magna</a></h2>
+                    <span style="float: right;">
+                  <a href="topMagna.html" style="font-weight: normal; font-size: 11px;">View More</a>
+              </span>
+                <h2 class="container text-left my-3"> Manga </h2>
                 <div class="widget-content">
                     <div class="widget-slide-block">
                         <div id="recipe-carousel2" class="carousel slide w-100" data-ride="carousel">
@@ -569,31 +580,26 @@
             </div>
         </article>
     </div>
-    <article>
-        <div class="widget news left">
-            <div class="widget-header">
+    <div id="content">
+        <article>
                 <div class="widget-header">
                     <span style="float: right;">
-                  <a href="#" style="font-weight: normal; font-size: 11px;">View More</a>
+                  <a href="news.html" style="font-weight: normal; font-size: 11px;">View More</a>
               </span>
-                    <h2 id="magnaNews" class="container text-left my-3"><a href="#"> Anime &amp; Manga News</a></h2>
+                    <h2 id="magnaNews" class="container text-left my-3"> Anime &amp; Manga News</h2>
                     <div class="widget-content">
                         <div class="widget-slide-block">
                             <div id="recipe-carousel3" class="carousel slide w-100" data-ride="carousel">
                                 <div class="carousel-inner w-100" role="listbox">
                                     <div class="carousel-item row no-gutters active">
                                         <div class="col-6 float-left">
-                                            <h3 class="h3_character_name"></h3>
-                                            <div class="picSurround">
-                                                <a href="#">
-                                                    <img class="lazyload"
+                                                <a href="#" class="link">
+                                                    <h3 class="h3_character_name">
+                                                        <span class="title">TV Anime Announces Supporting Cast, Broadcast Info</span>
+                                                    </h3>
+                                                    <img class="scroller" alt=""
                                                          src="https://cdn.myanimelist.net/r/50x70/s/common/uploaded_files/1607697330-7c3e09f435f79642a858de37270e0c86.jpeg?s=c6a087b5b78f20e2f8ed48a111e5b4fb"/>
                                                 </a>
-                                            </div>
-                                            <div class="news-unit-right">
-                                                <h3 class="title news_h3">
-                                                    <a href="#"> TV Anime Announces Supporting Cast, Broadcast Info</a>
-                                                </h3>
                                                 <div class="text">
                                                     <p>
                                                         The official website of the Back Arrow original television anime
@@ -613,19 +619,14 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                        </div>
                                         <div class="col-6 float-left">
-                                            <div class="news-unit clearfix">
-                                                <div class="picSurround">
-                                                    <a href="#">
-                                                        <img class="lazyload"
-                                                             src="https://cdn.myanimelist.net/r/50x70/s/common/uploaded_files/1607658459-bafaa8eb09fe5caacfee3d02a5267dc0.jpeg?s=52e942c4d92b0df8da2fd2567a12a4e6"/>
-                                                    </a>
-                                                </div>
-                                                <div class="news-unit-right">
-                                                    <h3 class="title news_h3">
-                                                        <a href="#">Manga Koroshi Ai Receives TV Anime Adaptation</a>
-                                                    </h3>
+                                            <a href="#" class="link">
+                                                <h3 class="h3_character_name">
+                                                    <span class="title">Manga Koroshi Ai Receives TV Anime Adaptation</span>
+                                                </h3>
+                                                <img class="scroller" alt=""
+                                                     src="https://cdn.myanimelist.net/r/50x70/s/common/uploaded_files/1607658459-bafaa8eb09fe5caacfee3d02a5267dc0.jpeg?s=52e942c4d92b0df8da2fd2567a12a4e6"/>
+                                            </a>
                                                     <div class="text">
                                                         <p>
                                                             Publishing company Kadokawa announced a television anime
@@ -650,61 +651,48 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
                                     <div class="carousel-item row no-gutters">
                                         <div class="col-6 float-left">
-                                            <div class="news-unit clearfix">
-                                                <div class="picSurround">
-                                                    <a href="#" class="image-link">
-                                                        <img class="lazyload"
-                                                             src="https://cdn.myanimelist.net/r/50x70/s/common/uploaded_files/1607637754-3162fc11ea3038f5ba6a815ac5e55399.jpeg?s=780963cb9ede4985e0ded98ef849ebbb"/>
-                                                    </a>
-                                                </div>
-                                                <div class="news-unit-right">
-                                                    <h3 class="title news_h3">
-                                                        <a href="#">2.43: Seiin Koukou Danshi Volley-bu Reveals
-                                                            Additional Cast</a>
+                                            <a href="#" class="link">
+                                                    <h3 class="h3_character_name">
+                                                        <span class="title">2.43: Seiin Koukou Danshi Volley-bu Reveals
+                                                            Additional Cast</span>
                                                     </h3>
-                                                    <div class="text">
-                                                        <p>
-                                                            The official Twitter account for the TV anime adaptation of
-                                                            Yukako
-                                                            Kabei&#039;s 2.43: Seiin Koukou Danshi Volley-bu (2.43:
-                                                            Seiin
-                                                            High
-                                                            School Boys Volleyball Club) novel series has revealed
-                                                            additional
-                                                            cast members individually since November 12, with the l...
-                                                            <a href="#">read
-                                                                more</a>
-                                                        </p>
-                                                    </div>
-                                                    <div class="information">
-                                                        <p class="info pr8">
-                                                            Yesterday, 2:03 PM by
-                                                            <a href="#">ImperfectBlue</a>
-                                                            | <a href="#">Discuss
-                                                                (3 comments)</a>
-                                                        </p>
-                                                    </div>
+                                                    <img class="scroller" alt=""
+                                                         src="https://cdn.myanimelist.net/r/50x70/s/common/uploaded_files/1607637754-3162fc11ea3038f5ba6a815ac5e55399.jpeg?s=780963cb9ede4985e0ded98ef849ebbb"/>
+                                            </a>
+                                                <div class="text">
+                                                    <p>
+                                                        The official Twitter account for the TV anime adaptation of
+                                                        Yukako
+                                                        Kabei&#039;s 2.43: Seiin Koukou Danshi Volley-bu (2.43:
+                                                        Seiin
+                                                        High
+                                                        School Boys Volleyball Club) novel series has revealed
+                                                        additional
+                                                        cast members individually since November 12, with the l...
+                                                        <a href="#">read
+                                                            more</a>
+                                                    </p>
+                                                </div>
+                                                <div class="information">
+                                                    <p class="info pr8">
+                                                        Yesterday, 2:03 PM by
+                                                        <a href="#">ImperfectBlue</a>
+                                                        | <a href="#">Discuss
+                                                        (3 comments)</a>
+                                                    </p>
                                                 </div>
                                             </div>
-                                        </div>
                                         <div class="col-6 float-left">
-                                            <div class="news-unit clearfix">
-                                                <div class="picSurround">
-                                                    <a href="#" class="image-link">
-                                                        <img class="lazyload"
-                                                             src="https://cdn.myanimelist.net/r/50x70/s/common/uploaded_files/1607567450-0648be7408bf26c773cd66f3870cdb7a.png?s=cf9448a417c3a0c6e94328253fea8873"/>
-                                                    </a>
-                                                </div>
-                                                <div class="news-unit-right">
-                                                    <h3 class="title news_h3">
-                                                        <a href="#"
-                                                           title="Funimation Global Group Acquires Crunchyroll">Funimation
-                                                            Global Group Acquires Crunchyroll</a>
+                                                <a href="#" class="link">
+                                                    <h3 class="h3_character_name">
+                                                        <span class="title">Funimation
+                                                            Global Group Acquires Crunchyroll</span>
                                                     </h3>
+                                                    <img class="scroller" alt=""
+                                                         src="https://cdn.myanimelist.net/r/50x70/s/common/uploaded_files/1607567450-0648be7408bf26c773cd66f3870cdb7a.png?s=cf9448a417c3a0c6e94328253fea8873"/>
+                                                </a>
                                                     <div class="text">
                                                         <p>
                                                             AT&amp;T Inc. (AT&amp;T) and Sony Pictures Entertainment
@@ -744,38 +732,30 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </article>
+        </article>
+    </div>
 </div>
+<br>
 <footer>
-    <div id="footer-block">
+    <div class="container-fluid padding">
         <div class="footer-link-block">
             <a href="index.html">Home</a> <br>
-            <a href="#">About</a> <br>
-            <a href="#">Support</a> <br>
-            <a href="#">FAQ</a> <br>
-            <a href="#">Terms</a> <br>
-            <a href="#">Privacy</a> <br>
-            <a href="#">Sitemap</a> <br>
+            <a href="about.html">About</a> <br>
+            <a href="support.html">Support</a> <br>
         </div>
-        <div class="container-fluid padding">
-            <div class="row text-center padding">
-                <div class="col-12">
-                    <h2>Connect</h2>
-                    <div class="col-12 social padding">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
+        <div class="row text-center padding">
+            <div class="col-12">
+                <h2>Connect</h2>
+                <div class="col-12 social padding">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
-        <div id="copyright">anu'sAnimeList Co.,Ltd. &copy;2020 All Rights Reserved.
+        <div id="copyright" style="text-align: center">anu'sAnimeList Co.,Ltd. &copy;2020 All Rights Reserved.
         </div>
     </div>
 </footer>

@@ -12,7 +12,88 @@ $(document).ready(function () {
     person();
     news();
     magazine();
+    allUsers();
 });
+
+function users() {
+}
+function allUsers() {
+    let main = {
+        "url": "https://api.jikan.moe/v3/anime/1/userupdates",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    let top;
+    $.ajax(main)
+        .done(function (response) {
+            top = response['users'];
+        });
+    $.each(top, function (key, value) {
+        let title = value["username"];
+        let moreDetails = value["url"];
+        let imageSource = value["image_url"];
+        let episodes = value["episodes_total"];
+        let Date = value["date"];
+        let seen = value["episodes_seen"];
+        let rating = value["score"];
+        let status = value["status"];
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 600px">
+                <h3>User Name: ` + title + `  </h3>
+                <img alt="" src="` + imageSource + ` "/>
+                <h5> 
+                Episodes available:` + episodes + ` <br>
+                Episodes seen: ` + seen + ` <br>
+                Status: ` + status + ` <br>
+                Date: ` + Date + ` <br>
+                 Score: ` + rating + ` <br>
+             </h5>
+             <a href="` + moreDetails + ` ">moredetails</a>
+        </div>`);
+        $("#userDiv").append(html);
+    });
+}
+function mangaReading() {
+    let main = {
+        "url": "https://api.jikan.moe/v3/anime/1/userupdates",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    let top;
+    $.ajax(main)
+        .done(function (response) {
+            top = response['users'];
+        });
+    $.each(top, function (key, value) {
+        let title = value["username"];
+        let moreDetails = value["url"];
+        let imageSource = value["image_url"];
+        let episodes = value["episodes_total"];
+        let Date = value["date"];
+        let seen = value["episodes_seen"];
+        let rating = value["score"];
+        let status = value["status"];
+        let html = (`<article id="allTopAnime">
+<div>
+                <h3>User Name: ` + title + `  </h3>
+                <img alt="" src="` + imageSource + ` "/>
+                <h5> 
+                Episodes available:` + episodes + ` <br>
+                Episodes seen: ` + seen + ` <br>
+                Status: ` + status + ` <br>
+                Date: ` + Date + ` <br>
+                 Score: ` + rating + ` <br>
+             </h5>
+             <a href="` + moreDetails + ` ">moredetails</a>
+        </div>
+</article>`);
+        $("#userDiv").append(html);
+    });
+}
+
 function magazine() {
     let main = {
         "url": "https://api.jikan.moe/v3/magazine/1",
@@ -33,8 +114,7 @@ function magazine() {
         let Date = value["publishing_start"];
         let about = value["synopsis"];
         let score= value["score"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: auto">
                 <h3>Title: ` + title + `</h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5>
@@ -43,8 +123,7 @@ function magazine() {
              </h5>
              <p>` + about + `</p>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#magazineDiv").append(html);
     });
 }
@@ -81,18 +160,16 @@ function animeNews() {
         let Date = value["date"];
         let about = value["intro"];
         let comments= value["comments"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
-                <img alt="" src="` + imageSource + ` "/>
+                <img height="400" width="200" alt="" src="` + imageSource + ` "/>
                 <h5> Author:` + Author + ` <br>
                 Date:` + Date + ` <br>
              </h5>
              <p>` + about + `</p>
              <p> comments: ` + comments + `</p>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#newsDiv").append(html);
     });
 }
@@ -117,22 +194,19 @@ function mangaNews() {
         let Date = value["date"];
         let about = value["intro"];
         let comments= value["comments"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
-                <img alt="" src="` + imageSource + ` "/>
+                <img height="400" width="200" alt="" src="` + imageSource + ` "/>
                 <h5> Author:` + Author + ` <br>
                 Date:` + Date + ` <br>
              </h5>
              <p>` + about + `</p>
              <p> comments: ` + comments + `</p>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#newsDiv").append(html);
     });
 }
-
 
 function recommendations(){
     recommendationsAnime();
@@ -163,16 +237,14 @@ function recommendationsAnime() {
         let moreDetails = value["url"];
         let recommendationCount = value["recommendation_count"];
         let imageSource = value["image_url"];
-        let html = (`<article id="AllTopFavorite">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + ` <br> </h3>
                 <img src="` + imageSource + `">
                 <h5>
                 Recommendation Count: ` + recommendationCount + ` <br>
              </h5>
              <a href="` + moreDetails + `">more details</a>
-        </div>
-</article>`);
+        </div>`);
         $("#recommendationDiv").append(html);
     });
 }
@@ -194,20 +266,17 @@ function recommendationsManga() {
         let moreDetails = value["url"];
         let recommendationCount = value["recommendation_count"];
         let imageSource = value["image_url"];
-        let html = (`<article id="AllTopFavorite">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + ` <br> </h3>
                 <img src="` + imageSource + `">
                 <h5>
                 Recommendation Count: ` + recommendationCount + ` <br>
              </h5>
              <a href="` + moreDetails + `">more details</a>
-        </div>
-</article>`);
+        </div>`);
         $("#recommendationDiv").append(html);
     });
 }
-
 
 function review(){
     reviewAnime();
@@ -244,8 +313,7 @@ function reviewAnime() {
         let soundScores = value["reviewer"]["scores"]["sound"];
         let characterScores = value["reviewer"]["scores"]["character"];
         let enjoymentScores = value["reviewer"]["scores"]["enjoyment"];
-        let html = (`<article id="AllTopFavorite">
-<div>
+        let html = (`<div class="col-12 float-left" style="width: fit-content; height: auto">
                 <h3>User Name: ` + userName + ` <br> </h3>
                 <img src="` + imageSource + `">
                 <h5>
@@ -259,8 +327,7 @@ function reviewAnime() {
             enjoyment: ` + enjoymentScores + ` <br>
              </h5>
              <p>` + moreDetails + `</p>
-        </div>
-</article>`);
+        </div>`);
         $("#reviewDiv").append(html);
     });
 }
@@ -288,8 +355,7 @@ function reviewManga() {
         let soundScores = value["reviewer"]["scores"]["sound"];
         let characterScores = value["reviewer"]["scores"]["character"];
         let enjoymentScores = value["reviewer"]["scores"]["enjoyment"];
-        let html = (`<article id="AllTopFavorite">
-<div>
+        let html = (`<div class="col-12 float-left" style="width: fit-content; height: auto">
                 <h3>User Name: ` + userName + ` <br> </h3>
                 <img src="` + imageSource + `">
                 <h5>
@@ -303,8 +369,7 @@ function reviewManga() {
             enjoyment: ` + enjoymentScores + ` <br>
              </h5>
              <p>` + moreDetails + `</p>
-        </div>
-</article>`);
+        </div>`);
         $("#reviewDiv").append(html);
     });
 }
@@ -337,24 +402,20 @@ function videoAnime() {
         let title = value["title"];
         let imageSource = value["image_url"];
         let videoSource = value["video_url"];
-        let html = (`<article>
-<div>
+        let html = (`<div class=" col-12 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
+                <br>
                 <img alt="" src="` + imageSource + ` "/>
                 <br>
-                <video controls width="250">
-
-    <source src="` + videoSource + `"
-            type="video/mp4">
-
-    Sorry, your browser doesn't support embedded videos.
-</video>
-        </div>
-</article>`);
+                <br>
+                <iframe width="640" height="520"
+src="` + videoSource + ` ">
+</iframe>  
+        </div>`);
         $("#videoDiv").append(html);
     });
 }
-function episodeAnime() {
+function episodeAnime(){
     let main = {
         "url": "https://api.jikan.moe/v3/anime/1/episodes",
         "method": "GET",
@@ -373,26 +434,19 @@ function episodeAnime() {
         let romanTitle = value["title_romanji"];
         let AiredFrom = value["aired"];
         let videoSource = value["video_url"];
-        let html = (`<article>
-<div>
+        let html = (`<div class="col-12 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  <br></h3>
                 <p> Japanese Title: ` + japaneseTitle + `  <br>
                  Roman Title:  ` + romanTitle+ `  <br>
                  Aired From:  ` + AiredFrom + `  <br></p>
                  <br>
-                <video controls width="250">
-
-    <source src="` + videoSource + `"
-            type="video/mp4">
-
-    Sorry, your browser doesn't support embedded videos.
-</video>
-        </div>
-</article>`);
+                <a href="`+videoSource +`">
+                <video  width="800" height="400" controls="controls" src="`+videoSource+`" type="video/mp4">
+</video></a>
+        </div>`);
         $("#videoDiv").append(html);
     });
 }
-
 
 function TopAnimeList() {
     topAnime();
@@ -455,8 +509,7 @@ function topAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -466,8 +519,7 @@ function topAnime() {
                  Rating: ` + rating + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#topDiv").append(html);
     });
 }
@@ -493,8 +545,7 @@ function topAiringAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<article id="allTopAiring">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -504,8 +555,7 @@ function topAiringAnime() {
                  Rating: ` + rating + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#topDiv").append(html);
     });
 }
@@ -532,8 +582,7 @@ function topUpcomingAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<article id="allTopUpcoming">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -543,8 +592,7 @@ function topUpcomingAnime() {
                  Rating: ` + rating + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#topDiv").append(html);
     });
 }
@@ -571,8 +619,7 @@ function topTVAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<article id="allTopTV">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -582,8 +629,7 @@ function topTVAnime() {
                  Rating: ` + rating + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#topDiv").append(html);
     });
 }
@@ -610,8 +656,7 @@ function topMovieAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<article id="allTopMovie">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -621,8 +666,7 @@ function topMovieAnime() {
                  Rating: ` + rating + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#topDiv").append(html);
     });
 }
@@ -649,8 +693,7 @@ function topOVAsAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<article id="AllTopOva">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -660,8 +703,7 @@ function topOVAsAnime() {
                  Rating: ` + rating + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#topDiv").append(html);
     });
 }
@@ -688,8 +730,7 @@ function topSpecialAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<article id="AllTopSpecials">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -699,8 +740,7 @@ function topSpecialAnime() {
                  Rating: ` + rating + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#topDiv").append(html);
     });
 }
@@ -727,8 +767,7 @@ function topPopularAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<article id="AllTopPopular">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -738,8 +777,7 @@ function topPopularAnime() {
                  Rating: ` + rating + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#topDiv").append(html);
     });
 }
@@ -766,8 +804,7 @@ function topFavoritesAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<article id="AllTopFavorite">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -777,8 +814,7 @@ function topFavoritesAnime() {
                  Rating: ` + rating + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#topDiv").append(html);
     });
 }
@@ -840,8 +876,7 @@ function topManga() {
             let startDate = value["start_date"];
             let endDate = value["end_date"];
             let rating = value["score"];
-            let html = (`<article id="allTopAnime">
-<div>
+            let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -851,8 +886,7 @@ function topManga() {
                  Rating: ` + rating + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
             $("#topMagnaDiv").append(html);
         });
     }
@@ -878,8 +912,7 @@ function topNovelsManga() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -889,8 +922,7 @@ function topNovelsManga() {
                  Rating: ` + rating + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#topMagnaDiv").append(html);
     });
 }
@@ -916,8 +948,7 @@ function topOneshotsManga() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -927,8 +958,7 @@ function topOneshotsManga() {
                  Rating: ` + rating + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#topMagnaDiv").append(html);
     });
 }
@@ -954,8 +984,7 @@ function topDoujinManga() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -965,8 +994,7 @@ function topDoujinManga() {
                  Rating: ` + rating + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#topMagnaDiv").append(html);
     });
 }
@@ -992,8 +1020,7 @@ function topManhwaManga() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -1003,8 +1030,7 @@ function topManhwaManga() {
                  Rating: ` + rating + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#topMagnaDiv").append(html);
     });
 }
@@ -1030,8 +1056,7 @@ function topManhuaManga() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -1041,8 +1066,7 @@ function topManhuaManga() {
                  Rating: ` + rating + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#topMagnaDiv").append(html);
     });
 }
@@ -1068,8 +1092,7 @@ function topPopularManga() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -1079,8 +1102,7 @@ function topPopularManga() {
                  Rating: ` + rating + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#topMagnaDiv").append(html);
     });
 }
@@ -1106,8 +1128,7 @@ function topfavoriteManga() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -1117,8 +1138,7 @@ function topfavoriteManga() {
                  Rating: ` + rating + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#topMagnaDiv").append(html);
     });
 }
@@ -1152,16 +1172,14 @@ function mangaForum() {
         let moreDetails = value["url"];
         let startDate = value["date_posted"];
         let Author = value["author_name"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 300px">
                 <h3>Title: ` + title + `  </h3>
                 <h5> 
                 Author Name:` + Author + ` <br>
                 Posted Date: ` + startDate + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#forumDiv").append(html);
     });
 }
@@ -1183,16 +1201,14 @@ function animeForum() {
         let moreDetails = value["url"];
         let startDate = value["date_posted"];
         let Author = value["author_name"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 300px">
                 <h3>Title: ` + title + `  </h3>
                 <h5> 
                 Author Name:` + Author + ` <br>
                 Posted Date: ` + startDate + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#forumDiv").append(html);
     });
 }
@@ -1216,25 +1232,182 @@ function clubsList() {
         "dataType": "json",
         "async": false,
     };
-    $.ajax(main).done(function() {
-    $.each(main, function (key, value) {
-        let title = value["title"];
-        let moreDetails = value["url"];
-        let imageSource = value["image_url"];
-        let members = value["members_count"];
-        let category = value["category"];
-        let html = (`<article id="allTopAnime">
-<div>
+    $.ajax(main).done(function(response) {
+        let title = response["title"];
+        let moreDetails = response["url"];
+        let imageSource = response["image_url"];
+        let members = response["members_count"];
+        let category = response["category"];
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: auto">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + `"/>
                 <h5> Members:` + members + ` <br>
                 Categories :` + category + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#clubsDiv").append(html);
     });
+    let main1 = {
+        "url": "https://api.jikan.moe/v3/club/2",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    $.ajax(main1).done(function(response) {
+        let title = response["title"];
+        let moreDetails = response["url"];
+        let imageSource = response["image_url"];
+        let members = response["members_count"];
+        let category = response["category"];
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: auto">
+                <h3>Title: ` + title + `  </h3>
+                <img alt="" src="` + imageSource + `"/>
+                <h5> Members:` + members + ` <br>
+                Categories :` + category + ` <br>
+             </h5>
+             <a href="` + moreDetails + ` ">moredetails</a>
+        </div>`);
+        $("#clubsDiv").append(html);
+    });
+    let main2 = {
+        "url": "https://api.jikan.moe/v3/club/3",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    $.ajax(main2).done(function(response) {
+        let title = response["title"];
+        let moreDetails = response["url"];
+        let imageSource = response["image_url"];
+        let members = response["members_count"];
+        let category = response["category"];
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: auto">
+                <h3>Title: ` + title + `  </h3>
+                <img alt="" src="` + imageSource + `"/>
+                <h5> Members:` + members + ` <br>
+                Categories :` + category + ` <br>
+             </h5>
+             <a href="` + moreDetails + ` ">moredetails</a>
+        </div>`);
+        $("#clubsDiv").append(html);
+    });
+    let main3 = {
+        "url": "https://api.jikan.moe/v3/club/4",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    $.ajax(main3).done(function(response) {
+        let title = response["title"];
+        let moreDetails = response["url"];
+        let imageSource = response["image_url"];
+        let members = response["members_count"];
+        let category = response["category"];
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: auto">
+                <h3>Title: ` + title + `  </h3>
+                <img alt="" src="` + imageSource + `"/>
+                <h5> Members:` + members + ` <br>
+                Categories :` + category + ` <br>
+             </h5>
+             <a href="` + moreDetails + ` ">moredetails</a>
+        </div>`);
+        $("#clubsDiv").append(html);
+    });
+    let main4 = {
+        "url": "https://api.jikan.moe/v3/club/5",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    $.ajax(main4).done(function(response) {
+        let title = response["title"];
+        let moreDetails = response["url"];
+        let imageSource = response["image_url"];
+        let members = response["members_count"];
+        let category = response["category"];
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: auto">
+                <h3>Title: ` + title + `  </h3>
+                <img height="400" width="200" alt="" src="` + imageSource + `"/>
+                <h5> Members:` + members + ` <br>
+                Categories :` + category + ` <br>
+             </h5>
+             <a href="` + moreDetails + ` ">moredetails</a>
+        </div>`);
+        $("#clubsDiv").append(html);
+    });
+    let main5 = {
+        "url": "https://api.jikan.moe/v3/club/6",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    $.ajax(main5).done(function(response) {
+        let title = response["title"];
+        let moreDetails = response["url"];
+        let imageSource = response["image_url"];
+        let members = response["members_count"];
+        let category = response["category"];
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: auto">
+                <h3>Title: ` + title + `  </h3>
+                <img alt="" src="` + imageSource + `"/>
+                <h5> Members:` + members + ` <br>
+                Categories :` + category + ` <br>
+             </h5>
+             <a href="` + moreDetails + ` ">moredetails</a>
+        </div>`);
+        $("#clubsDiv").append(html);
+    });
+    let main6 = {
+        "url": "https://api.jikan.moe/v3/club/7",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    $.ajax(main6).done(function(response) {
+        let title = response["title"];
+        let moreDetails = response["url"];
+        let imageSource = response["image_url"];
+        let members = response["members_count"];
+        let category = response["category"];
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: auto">
+                <h3>Title: ` + title + `  </h3>
+                <img alt="" src="` + imageSource + `"/>
+                <h5> Members:` + members + ` <br>
+                Categories :` + category + ` <br>
+             </h5>
+             <a href="` + moreDetails + ` ">moredetails</a>
+        </div>`);
+        $("#clubsDiv").append(html);
+    });
+    let main7 = {
+        "url": "https://api.jikan.moe/v3/club/8",
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    $.ajax(main7).done(function(response) {
+        let title = response["title"];
+        let moreDetails = response["url"];
+        let imageSource = response["image_url"];
+        let members = response["members_count"];
+        let category = response["category"];
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: auto">
+                <h3>Title: ` + title + `  </h3>
+                <img alt="" src="` + imageSource + `"/>
+                <h5> Members:` + members + ` <br>
+                Categories :` + category + ` <br>
+             </h5>
+             <a href="` + moreDetails + ` ">moredetails</a>
+        </div>`);
+        $("#clubsDiv").append(html);
     });
 }
 function members() {
@@ -1254,14 +1427,12 @@ function members() {
         let title = value["username"];
         let moreDetails = value["url"];
         let imageSource = value["image_url"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 500px">
                 <h3>User Name: ` + title + `  </h3>
                 <img alt="" src="https://cdn.myanimelist.net/`+ imageSource +`"/>
                 <br>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#clubsDiv").append(html);
     });
 }
@@ -1281,11 +1452,10 @@ function magnaPictures() {
         });
     $.each(top, function (key, value) {
         let moreDetails = value["large"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <img src="` + moreDetails + `"/>
-        </div>
-</article>`);
+                <br>
+        </div>`);
         $("#picturesDiv").append(html);
     });
 }
@@ -1320,16 +1490,14 @@ function topCharecters() {
         let moreDetails = value["url"];
         let imageSource = value["image_url"];
         let kanji = value["name_kanji"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 600px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
                 Kanji Name:` + kanji + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#charecterDiv").append(html);
     });
 }
@@ -1348,11 +1516,10 @@ function charecterPictures() {
         });
     $.each(top, function (key, value) {
         let moreDetails = value["large"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 500px">
                 <img src="` + moreDetails + `"/>
-        </div>
-</article>`);
+                <br>
+        </div>`);
         $("#charecterDiv").append(html);
     });
 }
@@ -1388,8 +1555,7 @@ function topperson() {
         let imageSource = value["image_url"];
         let kanji = value["name_kanji"];
         let birthday = value["birthday"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 600px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -1397,8 +1563,7 @@ function topperson() {
                 Kanji Name:` + kanji + ` <br>
              </h5>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#personDiv").append(html);
     });
 }
@@ -1417,11 +1582,10 @@ function peoplePictures() {
         });
     $.each(top, function (key, value) {
         let moreDetails = value["large"];
-        let html = (`<article id="allTopAnime">
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 500px">
                 <img src="` + moreDetails + `"/>
-        </div>
-</article>`);
+                <br>
+        </div>`);
         $("#personDiv").append(html);
     });
 }
@@ -1481,8 +1645,7 @@ function Summer2020() {
         let rating = value["score"];
         let source = value["source"]
         let producers = value["producers"]["name"];
-        let html = (`<article>
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> 
@@ -1494,8 +1657,7 @@ function Summer2020() {
              </h5>
              <p>` + details + `</p>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#seasonAnimeDiv").append(html);
     });
 }
@@ -1522,8 +1684,7 @@ function Fall2020() {
         let rating = value["score"];
         let source = value["source"]
         let producers = value["producers"]["name"];
-        let html = (`<article>
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> 
@@ -1535,8 +1696,7 @@ function Fall2020() {
              </h5>
              <p>` + details + `</p>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#seasonAnimeDiv").append(html);
     });
 }
@@ -1563,8 +1723,7 @@ function winter2020() {
         let rating = value["score"];
         let source = value["source"]
         let producers = value["producers"]["name"];
-        let html = (`<article>
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> 
@@ -1576,8 +1735,7 @@ function winter2020() {
              </h5>
              <p>` + details + `</p>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#seasonAnimeDiv").append(html);
     });
 }
@@ -1604,8 +1762,7 @@ function spring2020() {
         let rating = value["score"];
         let source = value["source"]
         let producers = value["producers"]["name"];
-        let html = (`<article>
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> 
@@ -1617,8 +1774,7 @@ function spring2020() {
              </h5>
              <p>` + details + `</p>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#seasonAnimeDiv").append(html);
     });
 }
@@ -1638,14 +1794,12 @@ function SeaasonArchive() {
     $.each(seasonSelected, function (key, value) {
         let title = value["year"];
         let moreDetails = value["seasons"];
-        let html = (`<article>
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>year: ` + title + `  </h3>
                 <h5> 
                 seasons :` + moreDetails + ` <br>
              </h5>
-        </div>
-</article>`);
+        </div>`);
         $("#seasonAnimeDiv").append(html);
     });
 }
@@ -1672,8 +1826,7 @@ function SeaasonSchedule() {
         let rating = value["score"];
         let source = value["source"]
         let producers = value["producers"]["name"];
-        let html = (`<article>
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> 
@@ -1685,8 +1838,7 @@ function SeaasonSchedule() {
              </h5>
              <p>` + details + `</p>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#seasonAnimeDiv").append(html);
     });
 }
@@ -1713,8 +1865,7 @@ function SeaasonLater() {
         let rating = value["score"];
         let source = value["source"]
         let producers = value["producers"]["name"];
-        let html = (`<article>
-<div>
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> 
@@ -1726,8 +1877,7 @@ function SeaasonLater() {
              </h5>
              <p>` + details + `</p>
              <a href="` + moreDetails + ` ">moredetails</a>
-        </div>
-</article>`);
+        </div>`);
         $("#seasonAnimeDiv").append(html);
     });
 }

@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
 
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'poppins', sans-serif;
+    color: black;
+    background-color: white;
+}
 
-.topAnimeNav, .seasonAnime, .topNav, .videosAnime,.reviewsAnime, .recommendationsAnime{
+.topAnimeNav, .seasonAnime, .topNav, .videosAnime, .reviewsAnime, .recommendationsAnime{
     overflow: hidden;
     background-color: #333;
 }
@@ -15,11 +23,11 @@
 }
 
 .topNav a:hover, .subnav:hover, .subnavbtn {
-    background-color: red;
+    background-color: gray;
 }
 
 .topAnimeNav a:hover, .seasonAnime a:hover, .videosAnime a:hover, .reviewsAnime a:hover, .recommendationsAnime a:hover {
-    background-color: blue;
+    background-color: gray;
 }
 
 .subnav {
@@ -64,32 +72,20 @@
     display: block;
 }
 
-#contentWrapper {
-    background-color: #fff;
-    min-height: 555px;
-    padding-bottom: 30px;
-    position: relative;
-}
 
-#contentWrapper {
-    margin-bottom: 0;
-}
-
-div {
-    display: block;
-}
-
-body.index #content {
+#content {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     display: table;
     table-layout: fixed;
     width: 100%;
 }
-
+div{
+    display: block;
+}
 #content {
     background-color: #fff;
-    border-color: #ebebeb;
+    border-color: darkgrey;
     border-style: solid;
     border-width: 0 1px 1px;
     padding: 5px 10px 10px;
@@ -99,16 +95,50 @@ body.index #content {
 article {
     display: block;
 }
-
-body.index .widget-header {
-    border-color: #bebebe;
-    border-style: solid;
-    border-width: 0 0 1px;
-    color: #000;
-    font-size: 12px;
-    font-weight: 700;
-    margin: 0;
-    padding: 3px 0;
+.title{
+    color: hotpink;
+}
+.social a {
+    font-size: 4.5rem;
+    padding: 3rem;
 }
 
+.fa-facebook {
+    color: darkblue;
+}
 
+.fa-twitter {
+    color: cornflowerblue;
+}
+
+.fa-google-plus-g {
+    color: red;
+}
+
+.fa-instagram {
+    color: blueviolet;
+}
+
+.fa-youtube {
+    color: red;
+}
+
+.fa-youtube:hover, .fa-instagram:hover, .fa-google-plus-g:hover, .fa-twitter:hover, .fa-facebook:hover {
+    color: darkgrey;
+}
+footer {
+    display: block;
+}
+
+footer {
+    background-color: black;
+    color: lightgray;
+    padding-top: 2rem;
+}
+
+.footer-link-block a {
+    color:whitesmoke;
+}
+h1{
+    float: right;
+}
