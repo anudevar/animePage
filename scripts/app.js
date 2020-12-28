@@ -280,18 +280,23 @@ function recommendationsManga() {
 
 function review(){
     reviewAnime();
-    $('#animeReview').on('click', function () {
-        $('#reviewDiv').empty();
-        reviewAnime();
-    });
-    $('#mangaReview').on('click', function () {
-        $('#reviewDiv').empty();
-        reviewManga();
-    });
+    function animeReview(){
+        $('#animeReview').on('click', function () {
+            $('#reviewDiv').empty();
+            reviewAnime();
+        });
+    }
+    function mangaReview(){
+        $('#mangaReview').on('click', function () {
+            $('#reviewDiv').empty();
+            reviewManga();
+        });
+    }
+
 }
-function reviewAnime() {
+function reviewAnime(number) {
     let favorite = {
-        "url": "https://api.jikan.moe/v3/anime/1/reviews",
+        "url": "https://api.jikan.moe/v3/anime/"+number+"/reviews",
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -331,9 +336,9 @@ function reviewAnime() {
         $("#reviewDiv").append(html);
     });
 }
-function reviewManga() {
+function reviewManga(number) {
     let favorite = {
-        "url": "https://api.jikan.moe/v3/manga/1/reviews",
+        "url": "https://api.jikan.moe/v3/manga/"+number+"/reviews",
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -375,19 +380,14 @@ function reviewManga() {
 }
 
 function videosAnime(){
-    videoAnime();
-    $('#videos').on('click', function () {
-        $('#videoDiv').empty();
-       videoAnime();
-    });
-    $('#episodes').on('click', function () {
-        $('#videoDiv').empty();
-        episodeAnime();
-    });
+    videoAnime(1);
+    videos();
+    episodes();
 }
-function videoAnime() {
+function videoAnime(number) {
+    let url = "https://api.jikan.moe/v3/anime/"+number+"/videos";
     let main = {
-        "url": "https://api.jikan.moe/v3/anime/1/videos",
+        "url": url,
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -408,16 +408,61 @@ function videoAnime() {
                 <img alt="" src="` + imageSource + ` "/>
                 <br>
                 <br>
-                <iframe width="640" height="520"
-src="` + videoSource + ` ">
+                <iframe width="640" height="520" src="` + videoSource + ` ">
 </iframe>  
         </div>`);
         $("#videoDiv").append(html);
     });
 }
-function episodeAnime(){
+function videos(){
+    $('#videos').on('click', function () {
+        $('#videoDiv').empty();
+        videoAnime(1);
+    });
+    $('#1').on('click', function () {
+        $("#videoDiv").empty();
+        videoAnime(1);
+    });
+    $('#2').on('click', function () {
+        $("#videoDiv").empty();
+        videoAnime(2);
+    });
+    $('#3').on('click', function () {
+        $("#videoDiv").empty();
+        videoAnime(3);
+    });
+    $('#4').on('click', function () {
+        $("#videoDiv").empty();
+        videoAnime(4);
+    });
+    $('#5').on('click', function () {
+        $("#videoDiv").empty();
+        videoAnime(5);
+    });
+    $('#6').on('click', function () {
+        $("#videoDiv").empty();
+        videoAnime(6);
+    });
+    $('#7').on('click', function () {
+        $("#videoDiv").empty();
+        videoAnime(7);
+    });
+    $('#8').on('click', function () {
+        $("#videoDiv").empty();
+        $("#videoDiv").append("nothing to display");
+    });
+    $('#9').on('click', function () {
+        $("#videoDiv").empty();
+        $("#videoDiv").append("nothing to display");
+    });
+    $('#10').on('click', function () {
+        $("#videoDiv").empty();
+        $("#videoDiv").append("nothing to display");
+    });
+}
+function episodeAnime(number){
     let main = {
-        "url": "https://api.jikan.moe/v3/anime/1/episodes",
+        "url": "https://api.jikan.moe/v3/anime/"+number+"/episodes",
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -447,49 +492,70 @@ function episodeAnime(){
         $("#videoDiv").append(html);
     });
 }
-
-function TopAnimeList() {
-    topAnime();
-    $('#allTopAnimeList').on('click', function () {
-        $('#topDiv').empty();
-        topAnime();
+function episodes(){
+    $('#episodes').on('click', function () {
+        $('#videoDiv').empty();
+        episodeAnime(1);
     });
-    $('#allTopAiringList').on('click', function () {
-        $('#topDiv').empty();
-        topAiringAnime();
+    $('#1').on('click', function () {
+        $("#videoDiv").empty();
+        episodeAnime(1);
     });
-    $('#allTopUpcomingList').on('click', function () {
-        $('#topDiv').empty();
-        topUpcomingAnime();
+    $('#2').on('click', function () {
+        $("#videoDiv").empty();
+        episodeAnime(2);
     });
-    $('#allTopTVList').on('click', function () {
-        $('#topDiv').empty();
-        topTVAnime();
+    $('#3').on('click', function () {
+        $("#videoDiv").empty();
+        episodeAnime(3);
     });
-    $('#allTopMovieList').on('click', function () {
-        $('#topDiv').empty();
-        topMovieAnime();
+    $('#4').on('click', function () {
+        $("#videoDiv").empty();
+        episodeAnime(4);
     });
-    $('#AllTopOvaList').on('click', function () {
-        $('#topDiv').empty();
-        topOVAsAnime();
+    $('#5').on('click', function () {
+        $("#videoDiv").empty();
+        episodeAnime(5);
     });
-    $('#AllTopSpecialsList').on('click', function () {
-        $('#topDiv').empty();
-        topSpecialAnime();
+    $('#6').on('click', function () {
+        $("#videoDiv").empty();
+        episodeAnime(6);
     });
-    $('#AllTopPopularList').on('click', function () {
-        $('#topDiv').empty();
-        topPopularAnime();
+    $('#7').on('click', function () {
+        $("#videoDiv").empty();
+        episodeAnime(7);
     });
-    $('#AllTopFavoriteList').on('click', function () {
-        $('#topDiv').empty();
-        topFavoritesAnime();
+    $('#8').on('click', function () {
+        $("#videoDiv").empty();
+        $("#videoDiv").append("nothing to display");
+    });
+    $('#9').on('click', function () {
+        $("#videoDiv").empty();
+        $("#videoDiv").append("nothing to display");
+    });
+    $('#10').on('click', function () {
+        $("#videoDiv").empty();
+        $("#videoDiv").append("nothing to display");
     });
 }
-function topAnime() {
+
+
+function TopAnimeList() {
+    topAnime(1);
+    allTopAnimelist();
+    allTopAiringList();
+    allTopUpcomingList();
+    allTopTVList();
+    allTopMovieList();
+    AllTopOvaList();
+    AllTopSpecialsList();
+    AllTopPopularList();
+    AllTopFavoriteList();
+}
+function topAnime(number) {
+    let url ="https://api.jikan.moe/v3/top/anime/"+number;
     let main = {
-        "url": "https://api.jikan.moe/v3/top/anime",
+        "url": url,
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -509,7 +575,7 @@ function topAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 600px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -523,9 +589,56 @@ function topAnime() {
         $("#topDiv").append(html);
     });
 }
-function topAiringAnime() {
+function allTopAnimelist(){
+    $('#allTopAnimeList').on('click', function () {
+        $("#topDiv").empty();
+        topAnime(1);
+    });
+        $('#1').on('click', function () {
+            $("#topDiv").empty();
+            topAnime(1);
+        });
+        $('#2').on('click', function () {
+            $("#topDiv").empty();
+            topAnime(2);
+        });
+        $('#3').on('click', function () {
+            $("#topDiv").empty();
+            topAnime(3);
+        });
+        $('#4').on('click', function () {
+            $("#topDiv").empty();
+            topAnime(4);
+        });
+        $('#5').on('click', function () {
+            $("#topDiv").empty();
+            topAnime(5);
+        });
+        $('#6').on('click', function () {
+            $("#topDiv").empty();
+            topAnime(6);
+        });
+        $('#7').on('click', function () {
+            $("#topDiv").empty();
+            topAnime(7);
+        });
+        $('#8').on('click', function () {
+            $("#topDiv").empty();
+            topAnime(8);
+        });
+        $('#9').on('click', function () {
+            $("#topDiv").empty();
+            topAnime(9);
+        });
+        $('#10').on('click', function () {
+            $("#topDiv").empty();
+            topAnime(10);
+        });
+}
+function topAiringAnime(number) {
+let url = "https://api.jikan.moe/v3/top/anime/"+number+"/airing";
     let airing = {
-        "url": "https://api.jikan.moe/v3/top/anime/1/airing",
+        "url": url,
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -545,7 +658,7 @@ function topAiringAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 600px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -559,9 +672,59 @@ function topAiringAnime() {
         $("#topDiv").append(html);
     });
 }
-function topUpcomingAnime() {
+function allTopAiringList(){
+    $('#allTopAiringList').on('click', function () {
+        $("#topDiv").empty();
+        topAiringAnime(1);
+    });
+        $('#1').on('click', function () {
+            $("#topDiv").empty();
+            topAiringAnime(1);
+        });
+        $('#2').on('click', function () {
+            $("#topDiv").empty();
+            topAiringAnime(2);
+        });
+        $('#3').on('click', function () {
+            $("#topDiv").empty();
+            topAiringAnime(3);
+        });
+        $('#4').on('click', function () {
+            $("#topDiv").empty();
+            topAiringAnime(4);
+        });
+        $('#5').on('click', function () {
+            $("#topDiv").empty();
+            topAiringAnime(5);
+        });
+        $('#6').on('click', function () {
+            $("#topDiv").empty();
+            topAiringAnime(6);
+        });
+        $('#7').on('click', function () {
+            $("#topDiv").empty();
+            topAiringAnime(7);
+        });
+        $('#8').on('click', function () {
+            $("#topDiv").empty();
+            let noDisplayText = (`<p> nothing to display</p>`);
+            $('#topDiv').append(noDisplayText);
+        });
+        $('#9').on('click', function () {
+            $("#topDiv").empty();
+            let noDisplayText = (`<p> nothing to display</p>`);
+            $('#topDiv').append(noDisplayText);
+        });
+        $('#10').on('click', function () {
+            $("#topDiv").empty();
+            let noDisplayText = (`<p> nothing to display</p>`);
+            $('#topDiv').append(noDisplayText);
+        });
+}
+function topUpcomingAnime(number) {
+    let url = "https://api.jikan.moe/v3/top/anime/"+number+"/upcoming";
     let upcoming = {
-        "url": "https://api.jikan.moe/v3/top/anime/1/upcoming",
+        "url": url,
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -582,7 +745,7 @@ function topUpcomingAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 600px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -596,9 +759,58 @@ function topUpcomingAnime() {
         $("#topDiv").append(html);
     });
 }
-function topTVAnime() {
+function allTopUpcomingList(){
+    $('#allTopUpcomingList').on('click', function () {
+        $('#topDiv').empty();
+        topUpcomingAnime(1);
+    });
+        $('#1').on('click', function () {
+            $("#topDiv").empty();
+            topUpcomingAnime(1);
+        });
+        $('#2').on('click', function () {
+            $("#topDiv").empty();
+            topUpcomingAnime(2);
+        });
+        $('#3').on('click', function () {
+            $("#topDiv").empty();
+            topUpcomingAnime(3);
+        });
+        $('#4').on('click', function () {
+            $("#topDiv").empty();
+            topUpcomingAnime(4);
+        });
+        $('#5').on('click', function () {
+            $("#topDiv").empty();
+            topUpcomingAnime(5);
+        });
+        $('#6').on('click', function () {
+            $("#topDiv").empty();
+            topUpcomingAnime(6);
+        });
+        $('#7').on('click', function () {
+            $("#topDiv").empty();
+            topUpcomingAnime(7);
+        });
+        $('#8').on('click', function () {
+            $("#topDiv").empty();
+            topUpcomingAnime(8);
+        });
+        $('#9').on('click', function () {
+            $("#topDiv").empty();
+            let noDisplayText = (`<p> nothing to display</p>`);
+            $('#topDiv').append(noDisplayText);
+        });
+        $('#10').on('click', function () {
+            $("#topDiv").empty();
+            let noDisplayText = (`<p> nothing to display</p>`);
+            $('#topDiv').append(noDisplayText);
+        });
+}
+function topTVAnime(number) {
+    let url = "https://api.jikan.moe/v3/top/anime/"+number+"/tv";
     let tv = {
-        "url": "https://api.jikan.moe/v3/top/anime/1/tv",
+        "url": url,
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -619,7 +831,7 @@ function topTVAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 600px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -633,9 +845,56 @@ function topTVAnime() {
         $("#topDiv").append(html);
     });
 }
-function topMovieAnime() {
+function allTopTVList(){
+    $('#allTopTVList').on('click', function () {
+        $('#topDiv').empty();
+        topTVAnime(1);
+    });
+        $('#1').on('click', function () {
+            $("#topDiv").empty();
+            topTVAnime(1);
+        });
+        $('#2').on('click', function () {
+            $("#topDiv").empty();
+            topTVAnime(2);
+        });
+        $('#3').on('click', function () {
+            $("#topDiv").empty();
+            topTVAnime(3);
+        });
+        $('#4').on('click', function () {
+            $("#topDiv").empty();
+            topTVAnime(4);
+        });
+        $('#5').on('click', function () {
+            $("#topDiv").empty();
+            topTVAnime(5);
+        });
+        $('#6').on('click', function () {
+            $("#topDiv").empty();
+            topTVAnime(6);
+        });
+        $('#7').on('click', function () {
+            $("#topDiv").empty();
+            topTVAnime(7);
+        });
+        $('#8').on('click', function () {
+            $("#topDiv").empty();
+            topTVAnime(8);
+        });
+        $('#9').on('click', function () {
+            $("#topDiv").empty();
+            topTVAnime(9);
+        });
+        $('#10').on('click', function () {
+            $("#topDiv").empty();
+            topTVAnime(10);
+        });
+}
+function topMovieAnime(number) {
+    let url = "https://api.jikan.moe/v3/top/anime/"+number+"/movie";
     let movie = {
-        "url": "https://api.jikan.moe/v3/top/anime/1/movie",
+        "url": url,
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -656,7 +915,7 @@ function topMovieAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 600px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -670,9 +929,56 @@ function topMovieAnime() {
         $("#topDiv").append(html);
     });
 }
-function topOVAsAnime() {
+function allTopMovieList(){
+    $('#allTopMovieList').on('click', function () {
+        $('#topDiv').empty();
+        topMovieAnime(1);
+    });
+        $('#1').on('click', function () {
+            $("#topDiv").empty();
+            topMovieAnime(1);
+        });
+        $('#2').on('click', function () {
+            $("#topDiv").empty();
+            topMovieAnime(2);
+        });
+        $('#3').on('click', function () {
+            $("#topDiv").empty();
+            topMovieAnime(3);
+        });
+        $('#4').on('click', function () {
+            $("#topDiv").empty();
+            topMovieAnime(4);
+        });
+        $('#5').on('click', function () {
+            $("#topDiv").empty();
+            topMovieAnime(5);
+        });
+        $('#6').on('click', function () {
+            $("#topDiv").empty();
+            topMovieAnime(6);
+        });
+        $('#7').on('click', function () {
+            $("#topDiv").empty();
+            topMovieAnime(7);
+        });
+        $('#8').on('click', function () {
+            $("#topDiv").empty();
+            topMovieAnime(8);
+        });
+        $('#9').on('click', function () {
+            $("#topDiv").empty();
+            topMovieAnime(9);
+        });
+        $('#10').on('click', function () {
+            $("#topDiv").empty();
+            topMovieAnime(10);
+        });
+}
+function topOVAsAnime(number) {
+    let url = "https://api.jikan.moe/v3/top/anime/"+number+"/ova";
     let ova = {
-        "url": "https://api.jikan.moe/v3/top/anime/1/ova",
+        "url": url,
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -693,7 +999,7 @@ function topOVAsAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 600px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -707,9 +1013,56 @@ function topOVAsAnime() {
         $("#topDiv").append(html);
     });
 }
-function topSpecialAnime() {
+function AllTopOvaList(){
+    $('#AllTopOvaList').on('click', function () {
+        $('#topDiv').empty();
+        topOVAsAnime(1);
+    });
+        $('#1').on('click', function () {
+            $("#topDiv").empty();
+            topOVAsAnime(1);
+        });
+        $('#2').on('click', function () {
+            $("#topDiv").empty();
+            topOVAsAnime(2);
+        });
+        $('#3').on('click', function () {
+            $("#topDiv").empty();
+            topOVAsAnime(3);
+        });
+        $('#4').on('click', function () {
+            $("#topDiv").empty();
+            topOVAsAnime(4);
+        });
+        $('#5').on('click', function () {
+            $("#topDiv").empty();
+            topMovieAnime(5);
+        });
+        $('#6').on('click', function () {
+            $("#topDiv").empty();
+            topOVAsAnime(6);
+        });
+        $('#7').on('click', function () {
+            $("#topDiv").empty();
+            topOVAsAnime(7);
+        });
+        $('#8').on('click', function () {
+            $("#topDiv").empty();
+            topOVAsAnime(8);
+        });
+        $('#9').on('click', function () {
+            $("#topDiv").empty();
+            topOVAsAnime(9);
+        });
+        $('#10').on('click', function () {
+            $("#topDiv").empty();
+            topOVAsAnime(10);
+        });
+}
+function topSpecialAnime(number) {
+    let url = "https://api.jikan.moe/v3/top/anime/"+number+"/special";
     let special = {
-        "url": "https://api.jikan.moe/v3/top/anime/1/special",
+        "url": url,
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -730,7 +1083,7 @@ function topSpecialAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 600px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -744,9 +1097,56 @@ function topSpecialAnime() {
         $("#topDiv").append(html);
     });
 }
-function topPopularAnime() {
+function AllTopSpecialsList(){
+    $('#AllTopSpecialsList').on('click', function () {
+        $('#topDiv').empty();
+        topSpecialAnime(1);
+    });
+        $('#1').on('click', function () {
+            $("#topDiv").empty();
+            topSpecialAnime(1);
+        });
+        $('#2').on('click', function () {
+            $("#topDiv").empty();
+            topSpecialAnime(2);
+        });
+        $('#3').on('click', function () {
+            $("#topDiv").empty();
+            topSpecialAnime(3);
+        });
+        $('#4').on('click', function () {
+            $("#topDiv").empty();
+            topSpecialAnime(4);
+        });
+        $('#5').on('click', function () {
+            $("#topDiv").empty();
+            topSpecialAnime(5);
+        });
+        $('#6').on('click', function () {
+            $("#topDiv").empty();
+            topSpecialAnime(6);
+        });
+        $('#7').on('click', function () {
+            $("#topDiv").empty();
+            topSpecialAnime(7);
+        });
+        $('#8').on('click', function () {
+            $("#topDiv").empty();
+            topSpecialAnime(8);
+        });
+        $('#9').on('click', function () {
+            $("#topDiv").empty();
+            topSpecialAnime(9);
+        });
+        $('#10').on('click', function () {
+            $("#topDiv").empty();
+            topSpecialAnime(10);
+        });
+}
+function topPopularAnime(number) {
+    let url = "https://api.jikan.moe/v3/top/anime/"+number+"/bypopularity";
     let popular = {
-        "url": "https://api.jikan.moe/v3/top/anime/1/bypopularity",
+        "url": url,
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -767,7 +1167,7 @@ function topPopularAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 600px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -781,9 +1181,56 @@ function topPopularAnime() {
         $("#topDiv").append(html);
     });
 }
-function topFavoritesAnime() {
+function AllTopPopularList(){
+    $('#AllTopPopularList').on('click', function () {
+        $('#topDiv').empty();
+        topPopularAnime(1);
+    });
+        $('#1').on('click', function () {
+            $("#topDiv").empty();
+            topPopularAnime(1);
+        });
+        $('#2').on('click', function () {
+            $("#topDiv").empty();
+            topPopularAnime(2);
+        });
+        $('#3').on('click', function () {
+            $("#topDiv").empty();
+            topPopularAnime(3);
+        });
+        $('#4').on('click', function () {
+            $("#topDiv").empty();
+            topPopularAnime(4);
+        });
+        $('#5').on('click', function () {
+            $("#topDiv").empty();
+            topPopularAnime(5);
+        });
+        $('#6').on('click', function () {
+            $("#topDiv").empty();
+            topPopularAnime(6);
+        });
+        $('#7').on('click', function () {
+            $("#topDiv").empty();
+            topPopularAnime(7);
+        });
+        $('#8').on('click', function () {
+            $("#topDiv").empty();
+            topPopularAnime(8);
+        });
+        $('#9').on('click', function () {
+            $("#topDiv").empty();
+            topPopularAnime(9);
+        });
+        $('#10').on('click', function () {
+            $("#topDiv").empty();
+            topPopularAnime(10);
+        });
+}
+function topFavoritesAnime(number) {
+    let url = "https://api.jikan.moe/v3/top/anime/"+number+"/favorite";
     let favorite = {
-        "url": "https://api.jikan.moe/v3/top/anime/1/favorite",
+        "url": url,
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -804,7 +1251,7 @@ function topFavoritesAnime() {
         let startDate = value["start_date"];
         let endDate = value["end_date"];
         let rating = value["score"];
-        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 600px">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> Rank:` + rank + ` <br>
@@ -818,45 +1265,125 @@ function topFavoritesAnime() {
         $("#topDiv").append(html);
     });
 }
+function AllTopFavoriteList(){
+    $('#AllTopFavoriteList').on('click', function () {
+        $('#topDiv').empty();
+        topFavoritesAnime(1);
+    });
+        $('#1').on('click', function () {
+            $("#topDiv").empty();
+            topFavoritesAnime(1);
+        });
+        $('#2').on('click', function () {
+            $("#topDiv").empty();
+            topFavoritesAnime(2);
+        });
+        $('#3').on('click', function () {
+            $("#topDiv").empty();
+            topFavoritesAnime(3);
+        });
+        $('#4').on('click', function () {
+            $("#topDiv").empty();
+            topFavoritesAnime(4);
+        });
+        $('#5').on('click', function () {
+            $("#topDiv").empty();
+            topFavoritesAnime(5);
+        });
+        $('#6').on('click', function () {
+            $("#topDiv").empty();
+            topFavoritesAnime(6);
+        });
+        $('#7').on('click', function () {
+            $("#topDiv").empty();
+            topFavoritesAnime(7);
+        });
+        $('#8').on('click', function () {
+            $("#topDiv").empty();
+            topFavoritesAnime(8);
+        });
+        $('#9').on('click', function () {
+            $("#topDiv").empty();
+            topFavoritesAnime(9);
+        });
+        $('#10').on('click', function () {
+            $("#topDiv").empty();
+            topFavoritesAnime(10);
+        });
+}
+
 
 function topAllManga() {
-    topManga();
-    $('#allManga').on('click', function () {
-        $('#topMagnaDiv').empty();
-        topManga();
+    topManga(1);
+    $('#allManga').on('click', function(){
+            $('#allManga').on('click', function () {
+                $('#topMagnaDiv').empty();
+                topManga(1);
+            });
+            $('#1').on('click', function () {
+                $("#topMagnaDiv").empty();
+                topManga(1);
+            });
+            $('#2').on('click', function () {
+                $("#topMagnaDiv").empty();
+                topManga(2);
+            });
+            $('#3').on('click', function () {
+                $("#topMagnaDiv").empty();
+                topManga(3);
+            });
+            $('#4').on('click', function () {
+                $("#topMagnaDiv").empty();
+                topManga(4);
+            });
+            $('#5').on('click', function () {
+                $("#topMagnaDiv").empty();
+                topManga(5);
+            });
+            $('#6').on('click', function () {
+                $("#topMagnaDiv").empty();
+                topManga(6);
+            });
+            $('#7').on('click', function () {
+                $("#topMagnaDiv").empty();
+                topManga(7);
+            });
+            $('#8').on('click', function () {
+                $("#topMagnaDiv").empty();
+                topManga(8);
+            });
+            $('#9').on('click', function () {
+                $("#topMagnaDiv").empty();
+                topManga(9);
+            });
+            $('#10').on('click', function () {
+                $("#topMagnaDiv").empty();
+                topManga(10);
+            });
     });
-    $('#allTopNovels').on('click', function () {
-        $('#topMagnaDiv').empty();
-        topNovelsManga();
-    });
-    $('#allTopOneshots').on('click', function () {
-        $('#topMagnaDiv').empty();
-        topOneshotsManga();
-    });
-    $('#allTopDoujin').on('click', function () {
-        $('#topMagnaDiv').empty();
-        topDoujinManga();
-    });
-    $('#allTopManhwa').on('click', function () {
-        $('#topMagnaDiv').empty();
-        topManhwaManga();
-    });
-    $('#allTopManhua').on('click', function () {
-        $('#topMagnaDiv').empty();
-        topManhuaManga();
-    });
-    $('#allTopPopular').on('click', function () {
-        $('#topMagnaDiv').empty();
-        topPopularManga();
-    });
-    $('#allTopFavorite').on('click', function () {
-        $('#topMagnaDiv').empty();
-        topfavoriteManga();
+
+    allTopNovels();
+allTopOneshots();
+allTopDoujin();
+allTopManhwa();
+allTopManhua();
+allTopPopularManga();
+allTopFavoriteManga();
+}
+/*function loop (i) {
+    $.get("https://api.jikan.moe/v3/top/manga/"+i+"/novels", function (response) {
+        let top = response['top'];
+        if (top.length > 0) {
+            loop(i + 1);
+        }
+        console.log(i);
     });
 }
-function topManga() {
+loop(1);*/
+function topManga(number) {
+   let url = "https://api.jikan.moe/v3/top/manga/"+number;
         let main = {
-            "url": "https://api.jikan.moe/v3/top/manga",
+            "url": url,
             "method": "GET",
             "timeout": 0,
             "dataType": "json",
@@ -872,27 +1399,127 @@ function topManga() {
             let title = value["title"];
             let moreDetails = value["url"];
             let imageSource = value["image_url"];
-            let episodes = value["episodes"];
+            let episodes = value["volumes"];
             let startDate = value["start_date"];
             let endDate = value["end_date"];
             let rating = value["score"];
             let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
                 <h3>Title: ` + title + `  </h3>
-                <img alt="" src="` + imageSource + ` "/>
+                <img alt="" src="` + imageSource + `"/>
                 <h5> Rank:` + rank + ` <br>
                 Episodes available:` + episodes + ` <br>
                 start date: ` + startDate + ` <br>
                 end date: ` + endDate + ` <br>
                  Rating: ` + rating + ` <br>
              </h5>
-             <a href="` + moreDetails + ` ">moredetails</a>
+             <a href="` + moreDetails + `">moredetails</a>
         </div>`);
             $("#topMagnaDiv").append(html);
         });
     }
-function topNovelsManga() {
+function topNovelsManga(number) {
+    let url = "https://api.jikan.moe/v3/top/manga/"+number+"/novels";
     let main = {
-        "url": "https://api.jikan.moe/v3/top/manga/1/novels",
+        "url": url,
+        "method": "GET",
+        "timeout": 0,
+        "dataType": "json",
+        "async": false,
+    };
+    let top;
+    $.ajax(main)
+        .done(function (response) {
+            top = response['top'];
+        });
+    $.each(top, function (key, value) {
+        let rank = value["rank"];
+        let title = value["title"];
+        let moreDetails = value["url"];
+        let imageSource = value["image_url"];
+        let episodes = value["episodes"];
+        let startDate = value["start_date"];
+        let endDate = value["end_date"];
+        let rating = value["score"];
+        let members = value["members"];
+        let type = value["type"];
+        let html = (` <table border="1" cellpadding="0" cellspacing="0" width="100%" class="top-ranking-table" id="table"><tbody><tr class="table-header"><td class="rank">Rank</td><td class="title">Title</td><td class="score">Score</td><td class="status">Status</td></tr>
+    <tr class="ranking-list">
+    <td class="rank" valign="top">
+    <span class="rank">` + rank + `</span>
+  </td>
+    <td class="title word-break">
+    <a href="#"style="position: relative;">
+      <img width="50" height="70" alt="" border="0" src="` + imageSource + `">
+    </a>
+    <div class="detail">
+            <h3 class="manga_h3"><a href="#" style="position: relative;">` + title + `</a></h3>
+      <div class="information">
+        ` + type + ` (` + episodes + ` vols)<br>
+        ` + startDate + `  - ` + endDate + `<br>
+        ` + members + ` members
+      </div>
+  </td>
+    <td class="score"><div><span class="text on score-label score-8">` + rating + `</span></div>
+  </td>
+   <td>      <a href="` + moreDetails + `">moredetails</a>
+</td>
+</tr>
+</tbody></table>
+`);
+        $("#topMagnaDiv").append(html);
+    });
+
+}
+function allTopNovels(){
+    $('#allTopNovels').on('click', function () {
+        $('#topMagnaDiv').empty();
+        topNovelsManga(1);
+    });
+        $('#1').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topNovelsManga(1);
+        });
+        $('#2').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topNovelsManga(2);
+        });
+        $('#3').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topNovelsManga(3);
+        });
+        $('#4').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topNovelsManga(4);
+        });
+        $('#5').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topNovelsManga(5);
+        });
+        $('#6').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topNovelsManga(6);
+        });
+        $('#7').on('click', function () {
+            $("#topDiv").empty();
+            topNovelsManga(7);
+        });
+        $('#8').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topNovelsManga(8);
+        });
+        $('#9').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topNovelsManga(9);
+        });
+        $('#10').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topNovelsManga(10);
+        });
+}
+function topOneshotsManga(number) {
+    let url = "https://api.jikan.moe/v3/top/manga/"+number+"/oneshots";
+    let main = {
+        "url": url,
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -926,9 +1553,56 @@ function topNovelsManga() {
         $("#topMagnaDiv").append(html);
     });
 }
-function topOneshotsManga() {
+function allTopOneshots(){
+    $('#allTopOneshots').on('click', function () {
+        $('#topMagnaDiv').empty();
+        topOneshotsManga(1);
+    });
+        $('#1').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topOneshotsManga(1);
+        });
+        $('#2').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topOneshotsManga(2);
+        });
+        $('#3').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topOneshotsManga(3);
+        });
+        $('#4').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topOneshotsManga(4);
+        });
+        $('#5').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topOneshotsManga(5);
+        });
+        $('#6').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topOneshotsManga(6);
+        });
+        $('#7').on('click', function () {
+            $("#topDiv").empty();
+            topOneshotsManga(7);
+        });
+        $('#8').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topOneshotsManga(8);
+        });
+        $('#9').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topOneshotsManga(9);
+        });
+        $('#10').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topOneshotsManga(10);
+    });
+}
+function topDoujinManga(number) {
+    let url = "https://api.jikan.moe/v3/top/manga/"+number+"/doujin"
     let main = {
-        "url": "https://api.jikan.moe/v3/top/manga/1/oneshots",
+        "url": url,
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -962,9 +1636,56 @@ function topOneshotsManga() {
         $("#topMagnaDiv").append(html);
     });
 }
-function topDoujinManga() {
+function allTopDoujin(){
+    $('#allTopDoujin').on('click', function () {
+        $('#topMagnaDiv').empty();
+        topDoujinManga(1);
+    });
+    $('#1').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topDoujinManga(1);
+        });
+        $('#2').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topDoujinManga(2);
+        });
+        $('#3').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topDoujinManga(3);
+        });
+        $('#4').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topDoujinManga(4);
+        });
+        $('#5').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topDoujinManga(5);
+        });
+        $('#6').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topDoujinManga(6);
+        });
+        $('#7').on('click', function () {
+            $("#topDiv").empty();
+            topDoujinManga(7);
+        });
+        $('#8').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topDoujinManga(8);
+        });
+        $('#9').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topDoujinManga(9);
+        });
+        $('#10').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topDoujinManga(10);
+        });
+
+}
+function topManhwaManga(number) {
     let main = {
-        "url": "https://api.jikan.moe/v3/top/manga/1/doujin",
+        "url": "https://api.jikan.moe/v3/top/manga/"+number+"/manhwa",
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -998,9 +1719,55 @@ function topDoujinManga() {
         $("#topMagnaDiv").append(html);
     });
 }
-function topManhwaManga() {
+function allTopManhwa(){
+    $('#allTopManhwa').on('click', function () {
+        $('#topMagnaDiv').empty();
+        topManhwaManga(1);
+    });
+        $('#1').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhwaManga(1);
+        });
+        $('#2').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhwaManga(2);
+        });
+        $('#3').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhwaManga(3);
+        });
+        $('#4').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhwaManga(4);
+        });
+        $('#5').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhwaManga(5);
+        });
+        $('#6').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhwaManga(6);
+        });
+        $('#7').on('click', function () {
+            $("#topDiv").empty();
+            topManhwaManga(7);
+        });
+        $('#8').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhwaManga(8);
+        });
+        $('#9').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhwaManga(9);
+        });
+        $('#10').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhwaManga(10);
+        });
+}
+function topManhuaManga(number) {
     let main = {
-        "url": "https://api.jikan.moe/v3/top/manga/1/manhwa",
+        "url": "https://api.jikan.moe/v3/top/manga/"+number+"/manhua",
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -1034,9 +1801,55 @@ function topManhwaManga() {
         $("#topMagnaDiv").append(html);
     });
 }
-function topManhuaManga() {
+function allTopManhua(){
+    $('#allTopManhua').on('click', function () {
+        $('#topMagnaDiv').empty();
+        topManhuaManga(1);
+    });
+        $('#1').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhuaManga(1);
+        });
+        $('#2').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhuaManga(2);
+        });
+        $('#3').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhuaManga(3);
+        });
+        $('#4').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhuaManga(4);
+        });
+        $('#5').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhuaManga(5);
+        });
+        $('#6').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhuaManga(6);
+        });
+        $('#7').on('click', function () {
+            $("#topDiv").empty();
+            topManhuaManga(7);
+        });
+        $('#8').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhuaManga(8);
+        });
+        $('#9').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhuaManga(9);
+        });
+        $('#10').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topManhuaManga(10);
+        });
+}
+function topPopularManga(number) {
     let main = {
-        "url": "https://api.jikan.moe/v3/top/manga/1/manhua",
+        "url": "https://api.jikan.moe/v3/top/manga/"+number+"/bypopularity",
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -1070,9 +1883,55 @@ function topManhuaManga() {
         $("#topMagnaDiv").append(html);
     });
 }
-function topPopularManga() {
+function allTopPopularManga(){
+    $('#allTopPopular').on('click', function () {
+        $('#topMagnaDiv').empty();
+        topPopularManga(1);
+    });
+    $('#1').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topPopularManga(1);
+        });
+        $('#2').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topPopularManga(2);
+        });
+        $('#3').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topPopularManga(3);
+        });
+        $('#4').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topPopularManga(4);
+        });
+        $('#5').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topPopularManga(5);
+        });
+        $('#6').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topPopularManga(6);
+        });
+        $('#7').on('click', function () {
+            $("#topDiv").empty();
+            topPopularManga(7);
+        });
+        $('#8').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topPopularManga(8);
+        });
+        $('#9').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topPopularManga(9);
+        });
+        $('#10').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topPopularManga(10);
+        });
+}
+function topfavoriteManga(number) {
     let main = {
-        "url": "https://api.jikan.moe/v3/top/manga/1/bypopularity",
+        "url": "https://api.jikan.moe/v3/top/manga/"+number+"/favorite",
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -1106,57 +1965,149 @@ function topPopularManga() {
         $("#topMagnaDiv").append(html);
     });
 }
-function topfavoriteManga() {
-    let main = {
-        "url": "https://api.jikan.moe/v3/top/manga/1/favorite",
-        "method": "GET",
-        "timeout": 0,
-        "dataType": "json",
-        "async": false,
-    };
-    let top;
-    $.ajax(main)
-        .done(function (response) {
-            top = response['top'];
-        });
-    $.each(top, function (key, value) {
-        let rank = value["rank"];
-        let title = value["title"];
-        let moreDetails = value["url"];
-        let imageSource = value["image_url"];
-        let episodes = value["episodes"];
-        let startDate = value["start_date"];
-        let endDate = value["end_date"];
-        let rating = value["score"];
-        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
-                <h3>Title: ` + title + `  </h3>
-                <img alt="" src="` + imageSource + ` "/>
-                <h5> Rank:` + rank + ` <br>
-                Episodes available:` + episodes + ` <br>
-                start date: ` + startDate + ` <br>
-                end date: ` + endDate + ` <br>
-                 Rating: ` + rating + ` <br>
-             </h5>
-             <a href="` + moreDetails + ` ">moredetails</a>
-        </div>`);
-        $("#topMagnaDiv").append(html);
+function allTopFavoriteManga(){
+    $('#allTopFavorite').on('click', function () {
+        $('#topMagnaDiv').empty();
+        topfavoriteManga(1);
     });
+    $('#1').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topfavoriteManga(1);
+        });
+        $('#2').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topfavoriteManga(2);
+        });
+        $('#3').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topfavoriteManga(3);
+        });
+        $('#4').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topfavoriteManga(4);
+        });
+        $('#5').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topfavoriteManga(5);
+        });
+        $('#6').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topfavoriteManga(6);
+        });
+        $('#7').on('click', function () {
+            $("#topDiv").empty();
+            topfavoriteManga(7);
+        });
+        $('#8').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topfavoriteManga(8);
+        });
+        $('#9').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topfavoriteManga(9);
+        });
+        $('#10').on('click', function () {
+            $("#topMagnaDiv").empty();
+            topfavoriteManga(10);
+        });
+
 }
 
 function forum(){
-    animeForum();
+    animeForum(1);
     $('#animeForum').on('click', function () {
         $('#forumDiv').empty();
-        animeForum();
+        animeForum(1);
+        $('#1').on('click', function () {
+            $("#forumDiv").empty();
+            animeForum(1);
+        });
+        $('#2').on('click', function () {
+            $("#forumDiv").empty();
+            animeForum(2);
+        });
+        $('#3').on('click', function () {
+            $("#forumDiv").empty();
+            animeForum(3);
+        });
+        $('#4').on('click', function () {
+            $("#forumDiv").empty();
+            animeForum(4);
+        });
+        $('#5').on('click', function () {
+            $("#forumDiv").empty();
+            animeForum(5);
+        });
+        $('#6').on('click', function () {
+            $("#forumDiv").empty();
+            animeForum(6);
+        });
+        $('#7').on('click', function () {
+            $("#forumDiv").empty();
+            animeForum(7);
+        });
+        $('#8').on('click', function () {
+            $("#forumDiv").empty();
+            animeForum(8);
+        });
+        $('#9').on('click', function () {
+            $("#forumDiv").empty();
+            animeForum(9);
+        });
+        $('#10').on('click', function () {
+            $("#forumDiv").empty();
+            animeForum(10);
+        });
     });
     $('#mangaForum').on('click', function () {
         $('#forumDiv').empty();
-        mangaForum();
+        mangaForum(1);
+        $('#1').on('click', function () {
+            $("#forumDiv").empty();
+            mangaForum(1);
+        });
+        $('#2').on('click', function () {
+            $("#forumDiv").empty();
+            mangaForum(2);
+        });
+        $('#3').on('click', function () {
+            $("#forumDiv").empty();
+            mangaForum(3);
+        });
+        $('#4').on('click', function () {
+            $("#forumDiv").empty();
+            mangaForum(4);
+        });
+        $('#5').on('click', function () {
+            $("#forumDiv").empty();
+            mangaForum(5);
+        });
+        $('#6').on('click', function () {
+            $("#forumDiv").empty();
+            mangaForum(6);
+        });
+        $('#7').on('click', function () {
+            $("#forumDiv").empty();
+            mangaForum(7);
+        });
+        $('#8').on('click', function () {
+            $("#forumDiv").empty();
+            mangaForum(8);
+        });
+        $('#9').on('click', function () {
+            $("#forumDiv").empty();
+            mangaForum(9);
+        });
+        $('#10').on('click', function () {
+            $("#forumDiv").empty();
+            mangaForum(10);
+        });
     });
 }
-function mangaForum() {
+function mangaForum(number) {
+   let url = "https://api.jikan.moe/v3/manga/"+number+"/forum";
     let main = {
-        "url": "https://api.jikan.moe/v3/manga/1/forum",
+        "url": url,
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -1183,9 +2134,9 @@ function mangaForum() {
         $("#forumDiv").append(html);
     });
 }
-function animeForum() {
+function animeForum(number) {
     let main = {
-        "url": "https://api.jikan.moe/v3/anime/1/forum",
+        "url": "https://api.jikan.moe/v3/anime/"+number+"/forum",
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -1461,10 +2412,38 @@ function magnaPictures() {
 }
 
 function charecter(){
-    charecterPictures();
+    charecterPictures(1);
     $('#picturesCharecters').on('click', function () {
         $('#charecterDiv').empty();
-        charecterPictures();
+        charecterPictures(1);
+        $('#1').on('click', function () {
+            $("#charecterDiv").empty();
+            charecterPictures(1);
+        });
+        $('#2').on('click', function () {
+            $("#charecterDiv").empty();
+            charecterPictures(2);
+        });
+        $('#3').on('click', function () {
+            $("#forumDiv").empty();
+            charecterPictures(3);
+        });
+        $('#4').on('click', function () {
+            $("#charecterDiv").empty();
+            charecterPictures(4);
+        });
+        $('#5').on('click', function () {
+            $("#charecterDiv").empty();
+            charecterPictures(5);
+        });
+        $('#6').on('click', function () {
+            $("#charecterDiv").empty();
+            charecterPictures(6);
+        });
+        $('#7').on('click', function () {
+            $("#charecterDiv").empty();
+            charecterPictures(7);
+        });
     });
     $('#topCharecters').on('click', function () {
         $('#charecterDiv').empty();
@@ -1501,9 +2480,20 @@ function topCharecters() {
         $("#charecterDiv").append(html);
     });
 }
-function charecterPictures() {
+function charecterPictures(number) {
+    let pageNumberHtml = (`<div className="pageFooter" style="position:absolute; bottom:0; textAlign:center; width:100%;">
+        <span id="1">1,&nbsp;&nbsp;</span>
+        <span id="2">2,&nbsp;&nbsp;</span>
+        <span id="3">3,&nbsp;&nbsp;</span>
+        <span id="4">4,&nbsp;&nbsp;</span>
+        <span id="5">5,&nbsp;&nbsp;</span>
+        <span id="6">6,&nbsp;&nbsp;</span>
+        <span id="7">7,&nbsp;&nbsp;</span>
+    </div>`);
+    $('#pageNumberDisplay').append(pageNumberHtml);
+
     let main = {
-        "url": "https://api.jikan.moe/v3/character/1/pictures",
+        "url": "https://api.jikan.moe/v3/character/"+number+"/pictures",
         "method": "GET",
         "timeout": 0,
         "dataType": "json",
@@ -1645,7 +2635,7 @@ function Summer2020() {
         let rating = value["score"];
         let source = value["source"]
         let producers = value["producers"]["name"];
-        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: 800px">
+        let html = (`<div class="col-sm-6 col-md-3 col-lg-4 float-left" style="width: fit-content; height: auto">
                 <h3>Title: ` + title + `  </h3>
                 <img alt="" src="` + imageSource + ` "/>
                 <h5> 
@@ -1884,3 +2874,4 @@ function SeaasonLater() {
 
 //sample variable takking
 //let takeData = x['producers']['name'];
+

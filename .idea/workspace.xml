@@ -3,24 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="7f7688fa-4f35-4d99-97a9-a6289724dbe5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/charecter.html" beforeDir="false" afterPath="$PROJECT_DIR$/charecter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clubs.html" beforeDir="false" afterPath="$PROJECT_DIR$/clubs.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fourm.html" beforeDir="false" afterPath="$PROJECT_DIR$/fourm.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/magazine.html" beforeDir="false" afterPath="$PROJECT_DIR$/magazine.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/news.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/people.html" beforeDir="false" afterPath="$PROJECT_DIR$/people.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/picturesMagna.html" beforeDir="false" afterPath="$PROJECT_DIR$/picturesMagna.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendations.html" beforeDir="false" afterPath="$PROJECT_DIR$/recommendations.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reviewAnime.html" beforeDir="false" afterPath="$PROJECT_DIR$/reviewAnime.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/seasonAnime.html" beforeDir="false" afterPath="$PROJECT_DIR$/seasonAnime.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/support.html" beforeDir="false" afterPath="$PROJECT_DIR$/support.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topAnime.html" beforeDir="false" afterPath="$PROJECT_DIR$/topAnime.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topMagna.html" beforeDir="false" afterPath="$PROJECT_DIR$/topMagna.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/videoAnime.html" beforeDir="false" afterPath="$PROJECT_DIR$/videoAnime.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +60,8 @@
       <workItem from="1608132094307" duration="19447000" />
       <workItem from="1608199754981" duration="23751000" />
       <workItem from="1608283784445" duration="12548000" />
-      <workItem from="1608501150637" duration="11308000" />
+      <workItem from="1608501150637" duration="28005000" />
+      <workItem from="1609083823439" duration="13772000" />
     </task>
     <task id="LOCAL-00001" summary="small change">
       <created>1607786600424</created>
@@ -135,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608242684297</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="full functional code">
+      <created>1608513170938</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1608513170938</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,6 +147,31 @@
     <MESSAGE value="updatedcode version" />
     <MESSAGE value="updated coe" />
     <MESSAGE value="updated version" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated version" />
+    <MESSAGE value="full functional code" />
+    <option name="LAST_COMMIT_MESSAGE" value="full functional code" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/scripts/app.js</url>
+          <line>638</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/scripts/app.js</url>
+          <line>1146</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/scripts/app.js</url>
+          <line>1151</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
