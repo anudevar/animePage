@@ -1315,53 +1315,7 @@ function AllTopFavoriteList(){
 
 function topAllManga() {
     topManga(1);
-    $('#allManga').on('click', function(){
-            $('#allManga').on('click', function () {
-                $('#topMagnaDiv').empty();
-                topManga(1);
-            });
-            $('#1').on('click', function () {
-                $("#topMagnaDiv").empty();
-                topManga(1);
-            });
-            $('#2').on('click', function () {
-                $("#topMagnaDiv").empty();
-                topManga(2);
-            });
-            $('#3').on('click', function () {
-                $("#topMagnaDiv").empty();
-                topManga(3);
-            });
-            $('#4').on('click', function () {
-                $("#topMagnaDiv").empty();
-                topManga(4);
-            });
-            $('#5').on('click', function () {
-                $("#topMagnaDiv").empty();
-                topManga(5);
-            });
-            $('#6').on('click', function () {
-                $("#topMagnaDiv").empty();
-                topManga(6);
-            });
-            $('#7').on('click', function () {
-                $("#topMagnaDiv").empty();
-                topManga(7);
-            });
-            $('#8').on('click', function () {
-                $("#topMagnaDiv").empty();
-                topManga(8);
-            });
-            $('#9').on('click', function () {
-                $("#topMagnaDiv").empty();
-                topManga(9);
-            });
-            $('#10').on('click', function () {
-                $("#topMagnaDiv").empty();
-                topManga(10);
-            });
-    });
-
+   allmanga();
     allTopNovels();
 allTopOneshots();
 allTopDoujin();
@@ -1416,7 +1370,69 @@ function topManga(number) {
         </div>`);
             $("#topMagnaDiv").append(html);
         });
+        let page=(`<nav>
+        <ul class="pagination">
+            <li class="page-item" id="1"><a class="page-link">1</a></li>
+            <li class="page-item" id="2"><a class="page-link">2</a></li>
+            <li class="page-item" id="3"><a class="page-link">3</a></li>
+            <li class="page-item" id="4"><a class="page-link">4</a></li>
+            <li class="page-item" id="5"><a class="page-link">5</a></li>
+            <li class="page-item" id="6"><a class="page-link">6</a></li>
+            <li class="page-item" id="7"><a class="page-link">7</a></li>
+            <li class="page-item" id="8"><a class="page-link">8</a></li>
+            <li class="page-item" id="9"><a class="page-link">9</a></li>
+            <li class="page-item" id="10"><a class="page-link">10</a></li>
+        </ul>
+    </nav> `);
+        $("#pageNumber").empty();
+        $("#pageNumber").append(page);
     }
+function allmanga() {
+    $('#allManga').on('click', function () {
+        $('#topMagnaDiv').empty();
+        topManga(1);
+    });
+    $('#1').on('click', function () {
+        $("#topMagnaDiv").empty();
+        topManga(1);
+    });
+    $('#2').on('click', function () {
+        $("#topMagnaDiv").empty();
+        topManga(2);
+    });
+    $('#3').on('click', function () {
+        $("#topMagnaDiv").empty();
+        topManga(3);
+    });
+    $('#4').on('click', function () {
+        $("#topMagnaDiv").empty();
+        topManga(4);
+    });
+    $('#5').on('click', function () {
+        $("#topMagnaDiv").empty();
+        topManga(5);
+    });
+    $('#6').on('click', function () {
+        $("#topMagnaDiv").empty();
+        topManga(6);
+    });
+    $('#7').on('click', function () {
+        $("#topMagnaDiv").empty();
+        topManga(7);
+    });
+    $('#8').on('click', function () {
+        $("#topMagnaDiv").empty();
+        topManga(8);
+    });
+    $('#9').on('click', function () {
+        $("#topMagnaDiv").empty();
+        topManga(9);
+    });
+    $('#10').on('click', function () {
+        $("#topMagnaDiv").empty();
+        topManga(10);
+    });
+}
 function topNovelsManga(number) {
     let url = "https://api.jikan.moe/v3/top/manga/"+number+"/novels";
     let main = {
